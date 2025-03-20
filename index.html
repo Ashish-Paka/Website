@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>🚀 My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/projects.html">Projects</a></li>
+                <li><a href="pages/skills.html">Skills</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="timeline">
+            <h2>📍 My Journey - Connecting the Dots</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" onclick="showDetails('about-me')">
+                    <span class="timeline-year">🎯 About Me</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails('early-education')">
+                    <span class="timeline-year">📚 Early Education</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails('education')">
+                    <span class="timeline-year">🎓 Education</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails('experience')">
+                    <span class="timeline-year">💼 Experience</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails('projects')">
+                    <span class="timeline-year">🚀 Projects</span>
+                </div>
+                <div class="timeline-item highlight" onclick="showDetails('knowledge-map')">
+                    <span class="timeline-year">🧠 Knowledge Map</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="details">
+            <div id="about-me" class="details-box">
+                <h3>About Me</h3>
+                <p>Robotics & AI Enthusiast, Building the Future of Autonomous Systems.</p>
+            </div>
+            <div id="early-education" class="details-box">
+                <h3>Early Education</h3>
+                <p>Strong foundation in Physics & Mathematics.</p>
+            </div>
+            <div id="education" class="details-box">
+                <h3>Education</h3>
+                <p>Mechanical Engineering (B.Tech) → Robotics & AI (M.S. at ASU).</p>
+            </div>
+            <div id="experience" class="details-box">
+                <h3>Experience</h3>
+                <p>Worked for international clients in Mechanical & Robotics fields.</p>
+            </div>
+            <div id="projects" class="details-box">
+                <h3>Projects</h3>
+                <p>Swarm Robotics, AI, Perception, and Multi-Robot Systems.</p>
+            </div>
+            <div id="knowledge-map" class="details-box">
+                <h3>Knowledge Map</h3>
+                <p>Highlighting my expertise in Robotics, AI, Vision, and Autonomous Systems.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
