@@ -4,8 +4,8 @@ const themeIcon = document.getElementById('themeIcon');
 function setTheme(mode) {
   document.body.className = mode;
   localStorage.setItem('theme', mode);
-  themeIcon.src = mode === 'dark-mode' 
-    ? 'assets/icons/dark_mode_icon.svg' 
+  themeIcon.src = mode === 'dark-mode'
+    ? 'assets/icons/dark_mode_icon.svg'
     : 'assets/icons/light_mode_icon.svg';
 }
 

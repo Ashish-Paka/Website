@@ -1,0 +1,11 @@
+﻿.timeline-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.timeline {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
