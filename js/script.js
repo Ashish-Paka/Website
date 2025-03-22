@@ -1,14 +1,35 @@
-// Function to show details for a selected timeline section
-function showDetails(sectionId) {
-    let details = document.querySelectorAll('.details-box');
-    details.forEach(box => box.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-  }
-  
-  // Example: Make knowledge map nodes clickable to display further info (you can later replace alert with a modal or detailed section)
-  document.querySelectorAll('.knowledge-node').forEach(node => {
-    node.addEventListener('click', function() {
-      alert(`More info about: ${this.innerText}`);
-    });
+document.querySelector(".icon-menu").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.body.classList.toggle("menu-open");
+});
+
+const spollerButtons = document.querySelectorAll("[data-spoller] .spollers-faq__button");
+
+spollerButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const currentItem = button.closest("[data-spoller]");
+    const content = currentItem.querySelector(".spollers-faq__text");
+
+    const parent = currentItem.parentNode;
+    const isOneSpoller = parent.hasAttribute("data-one-spoller");
+
+    if (isOneSpoller) {
+      const allItems = parent.querySelectorAll("[data-spoller]");
+      allItems.forEach((item) => {
+        if (item !== currentItem) {
+          const otherContent = item.querySelector(".spollers-faq__text");
+          item.classList.remove("active");
+          otherContent.style.maxHeight = null;
+        }
+      });
+    }
+
+    if (currentItem.classList.contains("active")) {
+      currentItem.classList.remove("active");
+      content.style.maxHeight = null;
+    } else {
+      currentItem.classList.add("active");
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
   });
-  
+});
