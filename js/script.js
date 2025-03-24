@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFadeAnimations();
   animateProficiencyBars();
   handleContactForm();
+  initPopupModals();
 });
 
 // Mobile menu
@@ -101,6 +102,88 @@ function updateThemeIcons() {
   }
 }
 
+// Initialize popup modals for Resume and Contact
+function initPopupModals() {
+  // Get the popup modals
+  const resumePopup = document.getElementById('resume-popup');
+  const contactPopup = document.getElementById('contact-popup');
+  
+  // Get the modal content from hidden content
+  const resumeContent = document.getElementById('resume-modal')?.querySelector('.modal-body');
+  const contactContent = document.getElementById('contact-modal')?.querySelector('.modal-body');
+  
+  // Populate modal content
+  if (resumeContent && resumePopup) {
+    const resumePopupBody = resumePopup.querySelector('.popup-body');
+    if (resumePopupBody) {
+      resumePopupBody.innerHTML = resumeContent.innerHTML;
+    }
+  }
+  
+  if (contactContent && contactPopup) {
+    const contactPopupBody = contactPopup.querySelector('.popup-body');
+    if (contactPopupBody) {
+      contactPopupBody.innerHTML = contactContent.innerHTML;
+    }
+  }
+  
+  // Set up event listeners for resume and contact nav links
+  const resumeLink = document.querySelector('.menu__link[href="#resume"]');
+  const contactLink = document.querySelector('.menu__link[href="#contact"]');
+  
+  if (resumeLink) {
+    resumeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(resumePopup);
+    });
+  }
+  
+  if (contactLink) {
+    contactLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(contactPopup);
+    });
+  }
+  
+  // Set up close buttons for all modals
+  const closeButtons = document.querySelectorAll('.close-popup');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.popup-modal');
+      closeModal(modal);
+    });
+  });
+  
+  // Close modal when clicking outside of content
+  window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('popup-modal')) {
+      closeModal(e.target);
+    }
+  });
+  
+  // Close modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const openModals = document.querySelectorAll('.popup-modal[style="display: block;"]');
+      openModals.forEach(modal => closeModal(modal));
+    }
+  });
+}
+
+// Helper function to open a modal
+function openModal(modal) {
+  if (!modal) return;
+  modal.style.display = 'block';
+  document.body.classList.add('modal-open');
+}
+
+// Helper function to close a modal
+function closeModal(modal) {
+  if (!modal) return;
+  modal.style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
 // Card selection handling
 function initCardSelection() {
   if (!categoryCards.length || !activeCardContainer) return;
@@ -126,11 +209,17 @@ function initCardSelection() {
     });
   });
 
-  // Also handle menu link clicks
+  // Handle menu link clicks
   document.querySelectorAll('.menu__link').forEach(link => {
     link.addEventListener('click', (e) => {
       // Extract section from href (e.g., "#about" -> "about")
       const section = link.getAttribute('href').substring(1);
+      
+      // If it's resume or contact, handle in initPopupModals
+      if (section === 'resume' || section === 'contact') {
+        return; // Let the other handler take care of this
+      }
+      
       const modalId = `${section}-modal`;
       
       // Find the corresponding card and trigger its click event
