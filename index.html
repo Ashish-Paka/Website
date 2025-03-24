@@ -5,699 +5,398 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
-  <title>Ashish Paka - Robotics & Autonomous Systems Engineer</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="Ashish Paka - Robotics & Autonomous Systems Engineer specializing in swarm robotics and human-robot interaction">
 </head>
 
 <body>
   <div class="wrapper">
     <header class="header">
       <div class="header__container">
-        <a href="index.html" class="header__logo logo">Ashish Paka</a>
+        <a href="index.html" class="header__logo logo">Home</a>
         <nav class="menu__body">
           <ul class="menu__list">
-            <li class="menu__item"><a href="#home" class="menu__link">Home</a></li>
             <li class="menu__item"><a href="#about" class="menu__link">About</a></li>
             <li class="menu__item"><a href="#education" class="menu__link">Education</a></li>
             <li class="menu__item"><a href="#experience" class="menu__link">Experience</a></li>
             <li class="menu__item"><a href="#projects" class="menu__link">Projects</a></li>
-            <li class="menu__item"><a href="#knowledge-map" class="menu__link">Knowledge Map</a></li>
+            <li class="menu__item"><a href="#skills" class="menu__link">Skills</a></li>
+            <li class="menu__item"><a href="#publications" class="menu__link">Publications</a></li>
+            <li class="menu__item"><a href="#resume" class="menu__link">Resume</a></li>
             <li class="menu__item"><a href="#contact" class="menu__link">Contact</a></li>
           </ul>
         </nav>
-        <button class="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun light-icon"></i>
+          <i class="fas fa-moon dark-icon"></i>
+        </button>
       </div>
     </header>
 
-    <nav class="timeline">
-      <div class="timeline__path"></div>
-      <div class="timeline__stop" data-section="about" data-category="about">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">About Me</div>
-        <div class="timeline__content">
-          <h3>Background & Vision</h3>
-          <ul>
-            <li>Robotics & Autonomous Systems Engineer</li>
-            <li>Focus on Human-Robot Collaboration</li>
-            <li>Bridging AI and Robotics</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline__stop" data-section="education" data-category="mechanical">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">Early Education</div>
-        <div class="timeline__content">
-          <h3>Foundation Years</h3>
-          <ul>
-            <li>Strong Physics & Mathematics Background</li>
-            <li>Early Engineering Projects</li>
-            <li>Academic Excellence</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline__stop" data-section="education" data-category="robotics">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">Higher Education</div>
-        <div class="timeline__content">
-          <h3>Advanced Studies</h3>
-          <ul>
-            <li>M.S. Robotics & Autonomous Systems (ASU)</li>
-            <li>B.Tech Mechanical Engineering (Manipal)</li>
-            <li>Specialized Research Focus</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline__stop" data-section="experience" data-category="industry">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">Professional Journey</div>
-        <div class="timeline__content">
-          <h3>Industry Experience</h3>
-          <ul>
-            <li>L&T Technology Services</li>
-            <li>Research at ASU</li>
-            <li>Industry Projects & Internships</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline__stop" data-section="projects" data-category="ai">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">Key Projects</div>
-        <div class="timeline__content">
-          <h3>Research & Development</h3>
-          <ul>
-            <li>Swarm Robotics for Mapping</li>
-            <li>Autonomous Driving Systems</li>
-            <li>Industrial Robotics Solutions</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline__stop" data-section="knowledge-map" data-category="robotics">
-        <div class="timeline__dot"></div>
-        <div class="timeline__label">Knowledge Map</div>
-        <div class="timeline__content">
-          <h3>Expertise Overview</h3>
-          <ul>
-            <li>Robotics & AI Integration</li>
-            <li>Autonomous Systems</li>
-            <li>Research Contributions</li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <main class="page">
-      <section id="home" class="section">
-        <div class="section__container">
-          <h1 class="section__title">Ashish Paka</h1>
-          <p class="section__subtitle">Robotics & Autonomous Systems Engineer</p>
-          <div class="section__content">
-            <p>Innovating at the intersection of robotics and artificial intelligence to create intelligent autonomous systems that enhance human capabilities.</p>
-            <div class="social-links">
-              <a href="https://github.com/ashishpaka" target="_blank" rel="noopener" class="social-link">GitHub</a>
-              <a href="https://linkedin.com/in/ashishpaka" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+      <section class="browse-categories">
+        <div class="browse-container">
+          <!-- Active card (left third) -->
+          <div class="active-card-container">
+            <div class="active-card-header">
+              <h2 class="active-card-title">About Me</h2>
+              <div class="active-card-subtitle">Robotics & Autonomous Systems Engineer</div>
+            </div>
+            <div class="active-card-content">
+              <!-- The active modal content will be displayed here -->
+            </div>
+          </div>
+          
+          <!-- Category cards (right two-thirds) -->
+          <div class="cards-container">
+            <h2 class="browse-title">Browse by category</h2>
+            <div class="category-cards">
+              <div class="category-card active" data-modal="about-modal">
+                <div class="card-image about-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">About</h3>
+                <p class="card-description">Robotics & Autonomous Systems Engineer specializing in human-robot collaboration</p>
+              </div>
+
+              <div class="category-card" data-modal="education-modal">
+                <div class="card-image education-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Education</h3>
+                <p class="card-description">M.S. Robotics and Autonomous Systems, B.Tech Mechanical Engineering</p>
+              </div>
+
+              <div class="category-card" data-modal="experience-modal">
+                <div class="card-image experience-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Experience</h3>
+                <p class="card-description">Industry experience and research positions in robotics and engineering</p>
+              </div>
+
+              <div class="category-card" data-modal="projects-modal">
+                <div class="card-image projects-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Projects</h3>
+                <p class="card-description">Research and development projects in robotics, AI, and autonomous systems</p>
+              </div>
+
+              <div class="category-card" data-modal="skills-modal">
+                <div class="card-image skills-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Skills</h3>
+                <p class="card-description">Technical expertise in programming, robotics, AI and engineering design</p>
+              </div>
+
+              <div class="category-card" data-modal="publications-modal">
+                <div class="card-image publications-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Publications</h3>
+                <p class="card-description">Research papers and patents in robotics and autonomous systems</p>
+              </div>
+
+              <div class="category-card" data-modal="resume-modal">
+                <div class="card-image resume-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Resume</h3>
+                <p class="card-description">Download resume in different formats and view career highlights</p>
+              </div>
+
+              <div class="category-card" data-modal="contact-modal">
+                <div class="card-image contact-bg">
+                  <div class="card-overlay"></div>
+                </div>
+                <h3 class="card-title">Contact</h3>
+                <p class="card-description">Get in touch to discuss opportunities and collaborations</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="section">
-        <div class="section__container">
-          <h2 class="section__title">About Me</h2>
-          <div class="section__content">
-            <p>As a Robotics & Autonomous Systems Engineer, I specialize in developing intelligent systems that bridge the gap between human interaction and robotic capabilities. My research focuses on advancing human-robot collaboration through innovative approaches in machine learning and control systems.</p>
-            <div class="about-grid">
-              <div class="about-card">
-                <h3>Vision</h3>
-                <p>Creating intelligent autonomous systems that seamlessly integrate with human environments, enhancing our capabilities and improving quality of life.</p>
-              </div>
-              <div class="about-card">
-                <h3>Mission</h3>
-                <p>Advancing the field of robotics through research and development of innovative solutions that address real-world challenges.</p>
+      <!-- Hidden modal containers with content -->
+      <div class="hidden-content" style="display: none;">
+        <div id="about-modal">
+          <div class="modal-content">
+            <h2>About Me</h2>
+            <div class="modal-body">
+              <p>As a Robotics & Autonomous Systems Engineer, I specialize in developing intelligent systems that bridge the gap between human interaction and robotic capabilities. My research focuses on advancing human-robot collaboration through innovative approaches in machine learning and control systems.</p>
+              <div class="about-grid">
+                <div class="about-card">
+                  <h3>Vision</h3>
+                  <p>Creating intelligent autonomous systems that seamlessly integrate with human environments, enhancing our capabilities and improving quality of life.</p>
+                </div>
+                <div class="about-card">
+                  <h3>Mission</h3>
+                  <p>Advancing the field of robotics through research and development of innovative solutions that address real-world challenges.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="education" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Education</h2>
-          <div class="section__content">
-            <div class="education-timeline">
+        <div id="education-modal">
+          <div class="modal-content">
+            <h2>Education</h2>
+            <div class="modal-body">
               <div class="education-item">
-                <h3>M.S. Robotics and Autonomous Systems</h3>
-                <p class="institution">Arizona State University</p>
-                <p class="period">2022 - Present</p>
-                <ul class="highlights">
-                  <li>Focus on Human-Robot Interaction and AI Integration</li>
-                  <li>Research in Swarm Robotics and Autonomous Systems</li>
-                  <li>Advanced coursework in Machine Learning and Control Systems</li>
-                </ul>
+                <div class="education-period">2023 - Present</div>
+                <div class="education-content">
+                  <h3>M.S. in Robotics and Autonomous Systems</h3>
+                  <h4>Arizona State University</h4>
+                  <p>Focusing on Reinforcement Learning, Computer Vision, Motion Planning, and Human-Robot Collaboration.</p>
+                </div>
               </div>
               <div class="education-item">
-                <h3>B.Tech. Mechanical Engineering</h3>
-                <p class="institution">Manipal Institute of Technology</p>
-                <p class="period">2017 - 2021</p>
-                <ul class="highlights">
-                  <li>Specialized in Robotics and Automation</li>
-                  <li>Led multiple technical projects and research initiatives</li>
-                  <li>Academic excellence with focus on practical applications</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Experience</h2>
-          <div class="section__content">
-            <div class="experience-grid">
-              <div class="experience-card">
-                <h3>Research Assistant</h3>
-                <p class="company">Arizona State University</p>
-                <p class="period">2022 - Present</p>
-                <ul class="responsibilities">
-                  <li>Leading research in human-robot collaboration</li>
-                  <li>Developing autonomous navigation systems</li>
-                  <li>Publishing research findings in top conferences</li>
-                </ul>
-              </div>
-              <div class="experience-card">
-                <h3>Robotics Engineer</h3>
-                <p class="company">L&T Technology Services</p>
-                <p class="period">2021 - 2022</p>
-                <ul class="responsibilities">
-                  <li>Developed industrial automation solutions</li>
-                  <li>Implemented computer vision systems</li>
-                  <li>Optimized manufacturing processes</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Projects</h2>
-          <div class="section__content">
-            <div class="projects-grid">
-              <div class="project-card">
-                <h3>Swarm Robotics for Mapping</h3>
-                <p class="category">Research Project</p>
-                <p>Developed a multi-robot system for collaborative mapping and exploration of unknown environments.</p>
-                <div class="tech-stack">
-                  <span>ROS</span>
-                  <span>Python</span>
-                  <span>SLAM</span>
-                </div>
-                  </div>
-              <div class="project-card">
-                <h3>Autonomous Navigation System</h3>
-                <p class="category">Development</p>
-                <p>Implemented a robust navigation system for mobile robots using advanced path planning algorithms.</p>
-                <div class="tech-stack">
-                  <span>C++</span>
-                  <span>ROS2</span>
-                  <span>Navigation2</span>
+                <div class="education-period">2016 - 2020</div>
+                <div class="education-content">
+                  <h3>B.Tech in Mechanical Engineering</h3>
+                  <h4>Manipal Institute of Technology</h4>
+                  <p>Specialized in Advanced Design, FEA, CFD, and Aerospace applications.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="skills" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Skills & Expertise</h2>
-          <p class="section__subtitle">A comprehensive breakdown of my technical capabilities</p>
-          <div class="section__content">
-            <div class="skills-categories">
-              <div class="skills-category">
-                <h3>Robotics</h3>
-                <ul>
-                  <li>ROS/ROS2 Framework</li>
-                  <li>Robot Kinematics</li>
-                  <li>Motion Planning</li>
-                  <li>Control Systems</li>
-                  <li>Path Planning</li>
-                  <li>Inverse Kinematics</li>
-                  <li>Autonomous Navigation</li>
-                </ul>
+        <div id="experience-modal">
+          <div class="modal-content">
+            <h2>Professional Experience</h2>
+            <div class="modal-body">
+              <div class="experience-item">
+                <div class="experience-period">2023 - Present</div>
+                <div class="experience-content">
+                  <h3>Graduate Research Assistant</h3>
+                  <h4>Arizona State University</h4>
+                  <p>Developing Shared Action Spaces for Human-Robot Collaboration and implementing learning-based approaches for motion planning.</p>
+                </div>
               </div>
-              
-              <div class="skills-category">
-                <h3>AI & Machine Learning</h3>
-                <ul>
-                  <li>Reinforcement Learning</li>
-                  <li>Deep Learning</li>
-                  <li>Computer Vision</li>
-                  <li>Neural Networks</li>
-                  <li>SLAM</li>
-                  <li>Sensor Fusion</li>
-                  <li>Scene Understanding</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Programming & Tools</h3>
-                <ul>
-                  <li>Python</li>
-                  <li>C++</li>
-                  <li>MATLAB</li>
-                  <li>PyTorch</li>
-                  <li>TensorFlow</li>
-                  <li>Git & GitHub</li>
-                  <li>Linux Systems</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Mechanical Design</h3>
-                <ul>
-                  <li>CAD/CAM Systems</li>
-                  <li>FEA Analysis</li>
-                  <li>CFD Simulation</li>
-                  <li>SolidWorks</li>
-                  <li>Fusion 360</li>
-                  <li>ANSYS</li>
-                  <li>Design for Manufacturing</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Multi-Robot Systems</h3>
-                <ul>
-                  <li>Swarm Robotics</li>
-                  <li>Distributed Algorithms</li>
-                  <li>Coordination Strategies</li>
-                  <li>Consensus Protocols</li>
-                  <li>Task Allocation</li>
-                  <li>Fleet Management</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Human-Robot Interaction</h3>
-                <ul>
-                  <li>Shared Action Spaces</li>
-                  <li>Collaborative Frameworks</li>
-                  <li>Gesture Recognition</li>
-                  <li>Human Intent Prediction</li>
-                  <li>Safety Protocols</li>
-                  <li>Intuitive Interfaces</li>
-                </ul>
+              <div class="experience-item">
+                <div class="experience-period">2020 - 2023</div>
+                <div class="experience-content">
+                  <h3>Mechanical Design Engineer</h3>
+                  <h4>L&T Technology Services</h4>
+                  <p>Led mechanical design projects for international clients and developed complex mechanical systems.</p>
+                </div>
               </div>
             </div>
-            
-            <div class="skills-proficiency">
-              <h3>Key Technical Proficiencies</h3>
-              <div class="proficiency-bars">
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Robotics & Control Systems</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 95%"></div>
+          </div>
+        </div>
+
+        <div id="projects-modal">
+          <div class="modal-content">
+            <h2>Projects</h2>
+            <div class="modal-body">
+              <div class="projects-grid">
+                <div class="project-item">
+                  <h3>Shared Action Spaces Framework</h3>
+                  <p>Developing an intuitive framework for human-robot collaboration in shared workspaces using reinforcement learning and computer vision.</p>
+                  <div class="tech-tags">
+                    <span>Reinforcement Learning</span>
+                    <span>ROS</span>
+                    <span>Computer Vision</span>
                   </div>
                 </div>
-                
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Machine Learning & AI</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 90%"></div>
-                  </div>
-                </div>
-                
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Programming (Python, C++)</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 90%"></div>
-                  </div>
-                </div>
-                
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Mechanical Design</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 85%"></div>
-                  </div>
-                </div>
-                
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Computer Vision & SLAM</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 88%"></div>
-              </div>
-            </div>
-                
-                <div class="proficiency-item">
-                  <div class="proficiency-label">Human-Robot Collaboration</div>
-                  <div class="proficiency-bar">
-                    <div class="proficiency-fill" style="width: 92%"></div>
+                <div class="project-item">
+                  <h3>Swarm Robotics Coordination</h3>
+                  <p>Developing coordination strategies for multi-robot systems in complex task execution scenarios.</p>
+                  <div class="tech-tags">
+                    <span>Swarm Intelligence</span>
+                    <span>Distributed Systems</span>
+                    <span>ROS</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="knowledge-map" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Knowledge Map</h2>
-          <p class="section__subtitle">Visualizing my journey through robotics, AI, and autonomous systems</p>
-          <div class="section__content">
-            <div id="knowledge-graph" class="knowledge-graph">
-              <!-- Knowledge graph will be rendered by JavaScript -->
-              <div class="knowledge-node knowledge-node-central" data-id="central">
-                <span>Robotics & Autonomous Systems Engineer</span>
-              </div>
-              <div class="knowledge-node knowledge-node-foundation" data-id="foundation">
-                <span>Science & Math Foundation (2010-2016)</span>
-              </div>
-              <div class="knowledge-node knowledge-node-mechanical" data-id="mechanical">
-                <span>Mechanical Engineering (2016-2020)</span>
-              </div>
-              <div class="knowledge-node knowledge-node-industry" data-id="industry">
-                <span>Industry Experience (2020-2023)</span>
-              </div>
-              <div class="knowledge-node knowledge-node-robotics" data-id="robotics">
-                <span>Robotics & AI Mastery (2023-Present)</span>
-              </div>
-              <div class="knowledge-node knowledge-node-research" data-id="research">
-                <span>Current Research Focus</span>
-              </div>
-              
-              <!-- Skills nodes -->
-              <div class="knowledge-node knowledge-node-ai" data-id="ai">
-                <span>AI & Machine Learning</span>
-              </div>
-              <div class="knowledge-node knowledge-node-vision" data-id="vision">
-                <span>Computer Vision</span>
-              </div>
-              <div class="knowledge-node knowledge-node-planning" data-id="planning">
-                <span>Motion Planning</span>
-              </div>
-              <div class="knowledge-node knowledge-node-swarm" data-id="swarm">
-                <span>Swarm Robotics</span>
-              </div>
-              <div class="knowledge-node knowledge-node-hri" data-id="hri">
-                <span>Human-Robot Interaction</span>
-              </div>
-              
-              <!-- Connection lines will be added by JavaScript -->
-            </div>
-            
-            <div class="knowledge-details">
-              <div class="knowledge-details__item" data-node="foundation">
-                <h3>Science & Math Foundation (2010-2016)</h3>
-                <ul>
-                  <li>Strong background in Physics & Mathematics</li>
-                  <li>Early engineering concepts and problem-solving</li>
-                  <li>Foundational interest in technology and systems</li>
-                </ul>
-              </div>
-              
-              <div class="knowledge-details__item" data-node="mechanical">
-                <h3>Mechanical Engineering (2016-2020)</h3>
-                <ul>
-                  <li>Rocketry-level design with ThrustMIT team</li>
-                  <li>FEA & CFD Analysis experience</li>
-                  <li>Advanced knowledge in aerospace & composites</li>
-                  <li>CAD/CAM systems and design principles</li>
-                </ul>
-              </div>
-              
-              <div class="knowledge-details__item" data-node="industry">
-                <h3>Industry Experience (2020-2023)</h3>
-                <ul>
-                  <li>L&T Technology Services - Mechanical Design Engineer</li>
-                  <li>International client projects and collaborations</li>
-                  <li>Project management and team leadership</li>
-                  <li>Industrial automation applications</li>
-                </ul>
-              </div>
-              
-              <div class="knowledge-details__item" data-node="robotics">
-                <h3>Robotics & AI Mastery (2023-Present)</h3>
-                <ul>
-                  <li>Reinforcement Learning applications in robotics</li>
-                  <li>Computer Vision and scene perception</li>
-                  <li>Advanced motion planning algorithms</li>
-                  <li>Multi-robot systems coordination</li>
-                  <li>Human-Robot Collaboration frameworks</li>
-                </ul>
-              </div>
-              
-              <div class="knowledge-details__item" data-node="research">
-                <h3>Current Research Focus</h3>
-                <ul>
-                  <li>Shared Action Spaces for Human-Robot Collaboration</li>
-                  <li>AI-Driven Robotics & Learning-Based Motion Planning</li>
-                  <li>Swarm Robotics & Multi-Robot Systems</li>
-                  <li>Soft Robotics & Morphing 3D Structures</li>
-                  <li>Perception & Autonomous Decision-Making</li>
-                </ul>
+        <div id="skills-modal">
+          <div class="modal-content">
+            <h2>Skills</h2>
+            <div class="modal-body">
+              <div class="skills-grid">
+                <div class="skill-group">
+                  <h3>Robotics & AI</h3>
+                  <ul>
+                    <li>Robot Motion Planning</li>
+                    <li>Reinforcement Learning</li>
+                    <li>Computer Vision</li>
+                    <li>SLAM & Perception</li>
+                  </ul>
+                </div>
+                <div class="skill-group">
+                  <h3>Programming</h3>
+                  <ul>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>ROS</li>
+                    <li>MATLAB</li>
+                  </ul>
+                </div>
+                <div class="skill-group">
+                  <h3>Engineering</h3>
+                  <ul>
+                    <li>CAD/CAM Systems</li>
+                    <li>FEA Analysis</li>
+                    <li>CFD Simulation</li>
+                    <li>GD&T</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="publications" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Publications & Research</h2>
-          <p class="section__subtitle">Academic contributions to the field of robotics and autonomous systems</p>
-          <div class="section__content">
-            <div class="publications-list">
+        <div id="publications-modal">
+          <div class="modal-content">
+            <h2>Publications & Patents</h2>
+            <div class="modal-body">
               <div class="publication-item">
-                <div class="publication-year">2023</div>
-                <div class="publication-content">
-                  <h3 class="publication-title">Distributed Task Allocation in Heterogeneous Multi-Robot Systems</h3>
-                  <p class="publication-authors">Paka, A., Johnson, M., & Smith, R.</p>
-                  <p class="publication-venue">IEEE International Conference on Robotics and Automation (ICRA)</p>
-                  <p class="publication-abstract">
-                    This paper presents a novel approach to task allocation in heterogeneous multi-robot systems 
-                    using distributed consensus algorithms. The proposed method demonstrates improved efficiency 
-                    in dynamic environments while maintaining robustness to communication failures.
-                  </p>
-                  <div class="publication-links">
-                    <a href="#" class="btn btn--sm">PDF</a>
-                    <a href="#" class="btn btn--sm">Code</a>
-                    <a href="#" class="btn btn--sm">Presentation</a>
-                  </div>
-                </div>
+                <h3>Shared Action Spaces: A Framework for Human-Robot Collaboration</h3>
+                <p class="publication-authors">Ashish Paka, et al.</p>
+                <p class="publication-venue">International Conference on Robotics and Automation (ICRA), 2024</p>
+                <p>Novel framework for enabling intuitive human-robot collaboration through shared action spaces.</p>
               </div>
-              
               <div class="publication-item">
-                <div class="publication-year">2022</div>
-                <div class="publication-content">
-                  <h3 class="publication-title">Reinforcement Learning for Adaptive Navigation in Complex Environments</h3>
-                  <p class="publication-authors">Paka, A., Garcia, L., & Thompson, K.</p>
-                  <p class="publication-venue">Robotics: Science and Systems (RSS)</p>
-                  <p class="publication-abstract">
-                    We introduce a reinforcement learning framework for robot navigation that adapts to changing 
-                    environmental conditions. Our approach combines model-based and model-free techniques to achieve 
-                    both sample efficiency and adaptability in previously unseen scenarios.
-                  </p>
-                  <div class="publication-links">
-                    <a href="#" class="btn btn--sm">PDF</a>
-                    <a href="#" class="btn btn--sm">Code</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="publication-item">
-                <div class="publication-year">2021</div>
-                <div class="publication-content">
-                  <h3 class="publication-title">Human-Robot Collaboration in Shared Workspaces: Safety and Efficiency Considerations</h3>
-                  <p class="publication-authors">Johnson, M., Paka, A., & Chen, Y.</p>
-                  <p class="publication-venue">ACM/IEEE International Conference on Human-Robot Interaction (HRI)</p>
-                  <p class="publication-abstract">
-                    This study examines the safety and efficiency tradeoffs in human-robot collaborative tasks. 
-                    We propose a framework that dynamically adjusts robot behavior based on human proximity and intent, 
-                    resulting in improved task completion times while maintaining high safety standards.
-                  </p>
-                  <div class="publication-links">
-                    <a href="#" class="btn btn--sm">PDF</a>
-                    <a href="#" class="btn btn--sm">Video</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="publication-item">
-                <div class="publication-year">2020</div>
-                <div class="publication-content">
-                  <h3 class="publication-title">Vision-Based Pose Estimation for Robotic Manipulation in Cluttered Environments</h3>
-                  <p class="publication-authors">Paka, A., & Davis, T.</p>
-                  <p class="publication-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
-                  <p class="publication-abstract">
-                    We present a robust vision-based approach for estimating object poses in cluttered environments. 
-                    Our method combines depth information with semantic segmentation to achieve accurate pose 
-                    estimation even under partial occlusion, enabling reliable robotic manipulation.
-                  </p>
-                  <div class="publication-links">
-                    <a href="#" class="btn btn--sm">PDF</a>
-                    <a href="#" class="btn btn--sm">Code</a>
-                    <a href="#" class="btn btn--sm">Dataset</a>
-                  </div>
-                </div>
+                <h3>System and Method for Collaborative Robot Task Learning</h3>
+                <p class="publication-authors">Inventors: Ashish Paka, et al.</p>
+                <p class="publication-venue">US Patent Application No. 17/XXX,XXX (Filed 2023)</p>
+                <p>Novel system for enabling robots to learn complex tasks through demonstration and reinforcement.</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="contact" class="section">
-        <div class="section__container">
-          <h2 class="section__title">Get In Touch</h2>
-          <p class="section__subtitle">Let's collaborate on robotics and autonomous systems solutions</p>
-          <div class="section__content contact-content">
-            <div class="contact-info">
-              <div class="contact-card">
-                <h3>Contact Information</h3>
-                <p>I'm always open to discussing robotics research, project collaboration, or opportunities in the field of autonomous systems.</p>
-                
-                <div class="contact-details">
-                  <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>ashish.paka@example.com</span>
-                  </div>
-                  <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+1 (480) 555-0123</span>
-                  </div>
-                  <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Phoenix, Arizona, USA</span>
-                  </div>
-                </div>
-                
-                <div class="social-links">
-                  <a href="https://github.com/" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a href="https://linkedin.com/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                  <a href="https://twitter.com/" target="_blank" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://scholar.google.com/" target="_blank" class="social-link">
-                    <i class="fas fa-graduation-cap"></i>
-                  </a>
-                </div>
+        <div id="resume-modal">
+          <div class="modal-content">
+            <h2>Resume</h2>
+            <div class="modal-body">
+              <div class="resume-download">
+                <a href="downloads/Resume.pdf" class="button" download>
+                  <i class="fas fa-file-pdf"></i> Download PDF
+                </a>
+                <a href="downloads/Resume.docx" class="button" download>
+                  <i class="fas fa-file-word"></i> Download Word
+                </a>
               </div>
-              
-              <div class="contact-availability">
-                <h3>Availability</h3>
-                <p>Currently available for:</p>
-                <ul class="availability-list">
-                  <li>Research Collaboration</li>
-                  <li>Technical Consulting</li>
-                  <li>Speaking Engagements</li>
-                  <li>Robotics Workshops</li>
-                </ul>
+              <div class="resume-summary">
+                <h3>Professional Summary</h3>
+                <p>Robotics & Autonomous Systems Engineer with expertise in human-robot collaboration, multi-robot systems, and industrial automation. Currently pursuing M.S. in Robotics and Autonomous Systems.</p>
               </div>
-            </div>
-            
-            <div class="contact-form-container">
-              <form class="contact-form" id="contact-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn--primary">Send Message</button>
-              </form>
             </div>
           </div>
         </div>
-      </section>
+
+        <div id="contact-modal">
+          <div class="modal-content">
+            <h2>Contact</h2>
+            <div class="modal-body">
+              <div class="contact-grid">
+                <div class="contact-info">
+                  <h3>Get In Touch</h3>
+                  <p>I'm always interested in hearing about new projects, research opportunities, and innovative ideas in robotics and autonomous systems.</p>
+                  <div class="contact-details">
+                    <div class="contact-item">
+                      <i class="fas fa-envelope"></i>
+                      <div>
+                        <h4>Email</h4>
+                        <a href="mailto:contact@example.com">contact@example.com</a>
+                      </div>
+                    </div>
+                    <div class="contact-item">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div>
+                        <h4>Location</h4>
+                        <p>Arizona State University<br>Tempe, AZ</p>
+                      </div>
+                    </div>
+                    <div class="contact-item">
+                      <i class="fas fa-link"></i>
+                      <div>
+                        <h4>Social</h4>
+                        <div class="social-links">
+                          <a href="https://github.com" target="_blank">GitHub</a>
+                          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-form">
+                  <form id="contact-form">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="subject">Subject</label>
+                      <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Send Message</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__content">
           <div class="footer__info">
-            <div class="footer__logo">Ashish Paka</div>
-            <p class="footer__tagline">Robotics & Autonomous Systems Engineer</p>
+            <a href="index.html" class="footer__logo">Home</a>
+            <p class="footer__tagline">Robotics & Autonomous Systems</p>
             <div class="footer__social">
-              <a href="https://github.com/" class="footer__social-link" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://linkedin.com/" class="footer__social-link" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://twitter.com/" class="footer__social-link" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://scholar.google.com/" class="footer__social-link" target="_blank">
-                <i class="fas fa-graduation-cap"></i>
-              </a>
+              <a href="https://github.com" target="_blank" class="footer__social-link"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com" target="_blank" class="footer__social-link"><i class="fab fa-linkedin"></i></a>
+              <a href="https://twitter.com" target="_blank" class="footer__social-link"><i class="fab fa-twitter"></i></a>
+              <a href="https://scholar.google.com" target="_blank" class="footer__social-link"><i class="fas fa-graduation-cap"></i></a>
             </div>
           </div>
-          
           <div class="footer__links">
-            <div class="footer__links-column">
+            <div class="footer__links-group">
               <h3 class="footer__links-title">Navigation</h3>
               <ul class="footer__links-list">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
               </ul>
             </div>
-            
-            <div class="footer__links-column">
+            <div class="footer__links-group">
               <h3 class="footer__links-title">Resources</h3>
               <ul class="footer__links-list">
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#knowledge-map">Knowledge Map</a></li>
-              </ul>
-            </div>
-            
-            <div class="footer__links-column">
-              <h3 class="footer__links-title">Contact</h3>
-              <ul class="footer__links-list">
-                <li><a href="#contact">Get In Touch</a></li>
-                <li><a href="mailto:ashish.paka@example.com">Email Me</a></li>
-                <li><a href="https://calendly.com/" target="_blank">Schedule a Call</a></li>
-                <li><a href="#" target="_blank">Download Resume</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
           </div>
         </div>
-        
         <div class="footer__bottom">
-          <div class="footer__copyright">
-            &copy; <span id="current-year">2023</span> Ashish Paka. All rights reserved.
-          </div>
+          <div class="footer__copyright">Copyright © <span id="current-year">2024</span> – All Rights Reserved</div>
           <div class="footer__credits">
-            <a href="/privacy.html">Privacy Policy</a>
+            <a href="#">Privacy Policy</a>
             <span class="footer__separator">|</span>
-            <a href="/terms.html">Terms of Use</a>
+            <a href="#">Terms of Use</a>
           </div>
         </div>
       </div>
