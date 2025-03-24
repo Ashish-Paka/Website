@@ -120,7 +120,7 @@ body {
 /* *****************HOME**************** */
 
 .main {
-  background: url("../img/home/background_placeholder.png") center / cover no-repeat;
+  background: url("../img/home/Home-Hero-Transparent.jpg") center / cover no-repeat;
   min-height: 100vh;
 }
 
@@ -166,13 +166,13 @@ body {
 }
 
 .outro_home {
-  background: url("../img/home/hero_placeholder.jpg") center / cover no-repeat;
+  background: url("../img/home/CTA.jpg") center / cover no-repeat;
 }
 
 /* ************ABOUT**************** */
 
 .main_about {
-  background: url("../img/about/background_placeholder.png") center / cover no-repeat;
+  background: url("../img/about/About-Hero-Transparent.jpg") center / cover no-repeat;
 }
 
 .about__container {
@@ -213,13 +213,13 @@ body {
 }
 
 .outro_about {
-  background: url("../img/about/hero_placeholder.jpg") center / cover no-repeat;
+  background: url("../img/about/CTA.jpg") center / cover no-repeat;
 }
 
 /* **************SERVICES**************** */
 
 .main_services {
-  background: url("../img/services/background_placeholder.png") center / cover no-repeat;
+  background: url("../img/services/Services-Hero-Transparent.jpg") center / cover no-repeat;
 }
 
 .services {
@@ -283,7 +283,7 @@ body {
 }
 
 .outro_services {
-  background: url("../img/services/hero_placeholder.jpg") center / cover no-repeat;
+  background: url("../img/services/CTA.jpg") center / cover no-repeat;
 }
 
 /* ************TESTIMONIAL**************** */
@@ -458,7 +458,7 @@ body {
 /* ****************CONTACT PAGE****************/
 
 .main_contact {
-  background: url("../img/contact/background_placeholder.png") center / cover no-repeat;
+  background: url("../img/contact/Contact-Hero-Transparent.jpg") center / cover no-repeat;
 }
 
 .contact__container {
@@ -670,7 +670,6 @@ iframe {
 
 .item-pricing__item::before {
   content: "";
-  background: url("../img/pricing/check.svg") 0 0 no-repeat;
   width: 16px;
   height: 18px;
 }
@@ -761,7 +760,6 @@ iframe {
 
 .item-team__role span::after {
   content: "";
-  background: url("../img/team/icons/star.svg") 0 0 no-repeat;
   width: 12px;
   height: 12px;
 }
