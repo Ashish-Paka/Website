@@ -25,44 +25,94 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Intersection Observer for Fade-in Animation
-const observerOptions = {
+const fadeObserverOptions = {
   root: null,
   threshold: 0.1,
   rootMargin: '0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      fadeObserver.unobserve(entry.target);
     }
   });
-}, observerOptions);
+}, fadeObserverOptions);
 
 document.querySelectorAll('.card, .timeline__stop, .skill-card, .publication-card').forEach(element => {
   element.classList.add('fade-in');
-  observer.observe(element);
+  fadeObserver.observe(element);
 });
 
 // Dark Mode Toggle
-const darkModeToggle = document.createElement('button');
-darkModeToggle.classList.add('dark-mode-toggle');
-darkModeToggle.innerHTML = '🌓';
-document.body.appendChild(darkModeToggle);
-
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-const currentTheme = localStorage.getItem('theme');
 
-if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+// Set initial dark mode state
+if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDarkScheme.matches)) {
   document.body.classList.add('dark-mode');
 }
 
+// Handle dark mode toggle
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-  const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-  localStorage.setItem('theme', theme);
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
+
+// Smooth Scrolling and Dots Navigation
+const sections = document.querySelectorAll('.section');
+const dots = document.querySelectorAll('.dot');
+let currentSection = 0;
+let isScrolling = false;
+
+// Update active dot and section
+function updateActiveSection(index) {
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+  currentSection = index;
+}
+
+// Handle wheel scrolling
+document.addEventListener('wheel', (e) => {
+  if (isScrolling) return;
+  
+  isScrolling = true;
+  setTimeout(() => { isScrolling = false; }, 1000);
+  
+  if (e.deltaY > 0 && currentSection < sections.length - 1) {
+    currentSection++;
+  } else if (e.deltaY < 0 && currentSection > 0) {
+    currentSection--;
+  }
+  
+  sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+  updateActiveSection(currentSection);
+});
+
+// Handle dot clicks
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    sections[index].scrollIntoView({ behavior: 'smooth' });
+    updateActiveSection(index);
+  });
+});
+
+// Intersection Observer for section visibility
+const sectionObserverOptions = {
+  threshold: 0.5
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const index = Array.from(sections).indexOf(entry.target);
+      updateActiveSection(index);
+    }
+  });
+}, sectionObserverOptions);
+
+sections.forEach(section => sectionObserver.observe(section));
 
 // Timeline Navigation
 const timelineStops = document.querySelectorAll('.timeline__stop');
