@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initDarkModeToggle();
   initCardSelection();
+  initGridScroll();
   updateCopyrightYear();
   initFadeAnimations();
+  animateProficiencyBars();
   handleContactForm();
 });
 
@@ -32,16 +34,35 @@ function initMobileMenu() {
 
 // Dark mode toggle
 function initDarkModeToggle() {
-  if (!themeToggle) return;
+  console.log('Theme toggle button:', themeToggle);
+  
+  if (!themeToggle) {
+    console.error('Theme toggle button not found');
+    return;
+  }
   
   // Check for saved theme preference or prefer-color-scheme
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  // Apply theme
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+  console.log('Saved theme:', savedTheme, 'Prefers dark:', prefersDark);
+  
+  // Apply theme based on saved preference or system preference
+  if (savedTheme === 'light') {
+    document.body.classList.remove('dark-theme');
+    console.log('Setting light theme based on saved preference');
+  } else if (savedTheme === 'dark' || prefersDark) {
+    // Default to dark mode if saved or system preference
     document.body.classList.add('dark-theme');
+    console.log('Setting dark theme based on preference');
+  } else {
+    // Otherwise default to light mode
+    document.body.classList.remove('dark-theme');
+    console.log('Defaulting to light theme');
   }
+  
+  // Update icon visibility based on current theme
+  updateThemeIcons();
   
   // Toggle theme on click
   themeToggle.addEventListener('click', () => {
@@ -50,7 +71,34 @@ function initDarkModeToggle() {
     // Save preference
     const isDark = document.body.classList.contains('dark-theme');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    console.log('Theme toggled:', isDark ? 'dark' : 'light');
+    
+    // Update icon visibility
+    updateThemeIcons();
   });
+}
+
+// Update visibility of theme icons based on current theme
+function updateThemeIcons() {
+  const lightIcon = document.querySelector('.light-icon');
+  const darkIcon = document.querySelector('.dark-icon');
+  const isDark = document.body.classList.contains('dark-theme');
+  
+  console.log('Updating theme icons, dark mode:', isDark);
+  
+  if (lightIcon && darkIcon) {
+    // In dark theme: show sun icon, hide moon icon
+    if (isDark) {
+      lightIcon.style.opacity = '1';
+      darkIcon.style.opacity = '0';
+    } 
+    // In light theme: hide sun icon, show moon icon
+    else {
+      lightIcon.style.opacity = '0';
+      darkIcon.style.opacity = '1';
+    }
+  }
 }
 
 // Card selection handling
@@ -72,6 +120,9 @@ function initCardSelection() {
       
       // Update the active card content
       updateActiveCard(modalId);
+      
+      // Ensure the card is visible by scrolling it into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
 
@@ -177,6 +228,114 @@ function initFadeAnimations() {
   });
 }
 
+// Enable grid scrolling on category cards
+function initGridScroll() {
+  const categoryCardsContainer = document.querySelector('.category-cards');
+  if (!categoryCardsContainer) return;
+  
+  // Mouse wheel scrolling for horizontal grid
+  categoryCardsContainer.addEventListener('wheel', (e) => {
+    // Prevent default scrolling behavior
+    e.preventDefault();
+    
+    // Determine scroll direction and amount
+    const scrollAmount = e.deltaY > 0 ? 150 : -150;
+    
+    // Scroll horizontally instead of vertically
+    categoryCardsContainer.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+    
+    // Find the card at the center of the viewport after scrolling
+    setTimeout(() => {
+      const containerRect = categoryCardsContainer.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      
+      let closestCard = null;
+      let closestDistance = Infinity;
+      
+      categoryCards.forEach(card => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const distance = Math.abs(containerCenter - cardCenter);
+        
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestCard = card;
+        }
+      });
+      
+      // Activate the closest card if it's not already active
+      if (closestCard && !closestCard.classList.contains('active')) {
+        closestCard.click();
+      }
+    }, 300); // Wait for the scroll to complete
+  }, { passive: false });
+  
+  // Touch scrolling for mobile
+  let touchStartX;
+  let touchEndX;
+  
+  categoryCardsContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  categoryCardsContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    
+    // Detect swipe direction
+    const deltaX = touchEndX - touchStartX;
+    
+    if (Math.abs(deltaX) > 50) {
+      // Find current active card
+      const activeCard = document.querySelector('.category-card.active');
+      if (!activeCard) return;
+      
+      // Get all cards as an array
+      const cards = Array.from(categoryCards);
+      const currentIndex = cards.indexOf(activeCard);
+      
+      // Calculate new index based on swipe direction
+      let newIndex = currentIndex;
+      if (deltaX > 0) {
+        // Swiped right, go to previous card
+        newIndex = Math.max(0, currentIndex - 1);
+      } else {
+        // Swiped left, go to next card
+        newIndex = Math.min(cards.length - 1, currentIndex + 1);
+      }
+      
+      // Click the new card
+      if (newIndex !== currentIndex) {
+        cards[newIndex].click();
+      }
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const activeCard = document.querySelector('.category-card.active');
+    if (!activeCard) return;
+    
+    const cards = Array.from(categoryCards);
+    const currentIndex = cards.indexOf(activeCard);
+    let newIndex = currentIndex;
+    
+    // Handle arrow keys
+    if (e.key === 'ArrowLeft') {
+      newIndex = Math.max(0, currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      newIndex = Math.min(cards.length - 1, currentIndex + 1);
+    }
+    
+    // Click the new card
+    if (newIndex !== currentIndex) {
+      cards[newIndex].click();
+    }
+  });
+}
+
 // Handle contact form submission
 function handleContactForm() {
   const form = document.querySelector('#contact-form');
@@ -196,36 +355,59 @@ function handleContactForm() {
       return;
     }
     
-    // Disable form during submission
+    // Disable the submit button
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
-    
-    // Collect form data
-    const formData = {
-      name: nameInput.value,
-      email: emailInput.value,
-      message: messageInput.value
-    };
     
     try {
       // Simulate API call with timeout
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Success - you would replace this with actual API call
-      console.log('Form data:', formData);
-      
-      // Clear form
-      form.reset();
-      
       // Show success message
+      form.reset();
       alert('Message sent successfully!');
     } catch (error) {
-      console.error('Error sending form:', error);
-      alert('There was an error sending your message. Please try again.');
+      // Show error message
+      alert('Failed to send message. Please try again later.');
     } finally {
-      // Re-enable form
+      // Re-enable the submit button
       submitButton.disabled = false;
       submitButton.textContent = 'Send Message';
     }
+  });
+}
+
+// Animate proficiency bars
+function animateProficiencyBars() {
+  const proficiencyBars = document.querySelectorAll('.proficiency-fill');
+  if (!proficiencyBars.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Reset the animation by removing and adding the element
+        const bar = entry.target;
+        const parent = bar.parentNode;
+        const width = bar.style.width;
+        
+        // Create a new element
+        const newBar = document.createElement('div');
+        newBar.className = 'proficiency-fill';
+        newBar.style.width = width;
+        
+        // Replace the old bar with the new one
+        parent.removeChild(bar);
+        parent.appendChild(newBar);
+        
+        // Unobserve after animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+  
+  proficiencyBars.forEach(bar => {
+    observer.observe(bar);
   });
 }
