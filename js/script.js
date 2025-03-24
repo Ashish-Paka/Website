@@ -1,259 +1,217 @@
-// Mobile Menu Toggle
-const menuIcon = document.querySelector('.icon-menu');
-const menuBody = document.querySelector('.menu__body');
+// Initialize Mobile Menu
+const initMobileMenu = () => {
+  const menuIcon = document.querySelector('.icon-menu');
+  const menuBody = document.querySelector('.menu__body');
 
-if (menuIcon) {
-  menuIcon.addEventListener('click', () => {
-    document.documentElement.classList.toggle('menu-open');
-    menuIcon.classList.toggle('active');
-    menuBody.classList.toggle('active');
-  });
-}
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      // Find the timeline stop that corresponds to this section and activate it
-      const timelineStops = document.querySelectorAll('.timeline__stop');
-      timelineStops.forEach((stop, index) => {
-        const stopSection = stop.getAttribute('data-section');
-        if (stopSection && targetId.substring(1) === stopSection) {
-          updateTimeline(index);
-        }
-      });
-
-      // Scroll to the section
-      window.scrollTo({
-        top: targetElement.offsetTop - 100,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Intersection Observer for Fade-in Animation
-const fadeObserverOptions = {
-  root: null,
-  threshold: 0.1,
-  rootMargin: '0px'
+  if (menuIcon) {
+    menuIcon.addEventListener('click', () => {
+      document.documentElement.classList.toggle('menu-open');
+      menuIcon.classList.toggle('active');
+      menuBody.classList.toggle('active');
+    });
+  }
 };
 
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, fadeObserverOptions);
+// Initialize Smooth Scroll
+const initSmoothScroll = () => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Find the timeline stop that corresponds to this section and activate it
+        const timelineStops = document.querySelectorAll('.timeline__stop');
+        timelineStops.forEach((stop, index) => {
+          const stopSection = stop.getAttribute('data-section');
+          if (stopSection && targetId.substring(1) === stopSection) {
+            updateTimeline(index);
+          }
+        });
 
-document.querySelectorAll('.card, .timeline__stop, .skill-card, .publication-card').forEach(element => {
-  element.classList.add('fade-in');
-  fadeObserver.observe(element);
-});
-
-// Dark Mode Toggle
-const darkModeToggle = document.querySelector('.dark-mode-toggle');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-// Set initial dark mode state
-if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDarkScheme.matches)) {
-  document.body.classList.add('dark-mode');
-}
-
-// Handle dark mode toggle
-darkModeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-});
-
-// Horizontal Scrolling and Navigation
-const page = document.querySelector('.page');
-const sections = document.querySelectorAll('.section');
-const dotsNav = document.querySelector('.dots-nav');
-
-// Create dots navigation
-sections.forEach((section, index) => {
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if (index === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => scrollToSection(index));
-  dotsNav.appendChild(dot);
-});
-
-// Scroll to section
-function scrollToSection(index) {
-  const section = sections[index];
-  section.scrollIntoView({ behavior: 'smooth' });
-  updateActiveDot(index);
-}
-
-// Update active dot
-function updateActiveDot(index) {
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[index].classList.add('active');
-}
-
-// Handle scroll events
-let isScrolling = false;
-page.addEventListener('scroll', () => {
-  if (!isScrolling) {
-    isScrolling = true;
-    window.requestAnimationFrame(() => {
-      const currentIndex = Math.round(page.scrollLeft / window.innerWidth);
-      updateActiveDot(currentIndex);
-      isScrolling = false;
+        // Scroll to the section
+        window.scrollTo({
+          top: targetElement.offsetTop - 120, // Adjusted for header + timeline
+          behavior: 'smooth'
+        });
+      }
     });
-  }
-});
-
-// Handle keyboard navigation
-document.addEventListener('keydown', (e) => {
-  const currentIndex = Array.from(sections).findIndex(section => 
-    section.getBoundingClientRect().left >= 0
-  );
-  
-  if (e.key === 'ArrowRight' && currentIndex < sections.length - 1) {
-    scrollToSection(currentIndex + 1);
-  } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
-    scrollToSection(currentIndex - 1);
-  }
-});
-
-// Initialize with About section active
-window.addEventListener('load', () => {
-  const aboutSection = document.querySelector('#about');
-  if (aboutSection) {
-    const index = Array.from(sections).indexOf(aboutSection);
-    scrollToSection(index);
-  }
-});
-
-// Timeline Navigation
-const timeline = document.querySelector('.timeline');
-const timelineStops = document.querySelectorAll('.timeline__stop');
-let currentStop = 0;
-let isAnimating = false;
-
-function updateTimeline(index) {
-  if (isAnimating) return;
-  isAnimating = true;
-  currentStop = index;
-  
-  // Remove active class from all stops
-  timelineStops.forEach(stop => {
-    stop.classList.remove('active');
   });
+};
+
+// Initialize Dark Mode Toggle
+const initDarkModeToggle = () => {
+  const darkModeToggle = document.querySelector('.dark-mode-toggle');
+  if (!darkModeToggle) return;
   
-  // Add active class to the current stop
-  timelineStops[index].classList.add('active');
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+  // Set initial dark mode state
+  if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDarkScheme.matches)) {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Handle dark mode toggle
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+};
+
+// Initialize Fade-in Animations
+const initFadeAnimations = () => {
+  const fadeObserverOptions = {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px'
+  };
+
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, fadeObserverOptions);
+
+  document.querySelectorAll('.card, .timeline__stop, .skill-card, .publication-card').forEach(element => {
+    element.classList.add('fade-in');
+    fadeObserver.observe(element);
+  });
+};
+
+// Setup Timeline Navigation
+const setupTimeline = () => {
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
   
-  // Get the section to scroll to
-  const sectionId = timelineStops[index].getAttribute('data-section');
-  const sectionElement = document.getElementById(sectionId);
-  
-  if (sectionElement) {
-    window.scrollTo({
-      top: sectionElement.offsetTop - 100,
-      behavior: 'smooth'
+  const timelineStops = document.querySelectorAll('.timeline__stop');
+  let currentStop = 0;
+  let isAnimating = false;
+
+  // Update timeline and scroll to section
+  window.updateTimeline = function(index) {
+    if (isAnimating) return;
+    isAnimating = true;
+    currentStop = index;
+    
+    // Remove active class from all stops
+    timelineStops.forEach(stop => {
+      stop.classList.remove('active');
     });
     
-    // After animation completes
-    setTimeout(() => {
+    // Add active class to the current stop
+    timelineStops[index].classList.add('active');
+    
+    // Get the section to scroll to
+    const sectionId = timelineStops[index].getAttribute('data-section');
+    const sectionElement = document.getElementById(sectionId);
+    
+    if (sectionElement) {
+      window.scrollTo({
+        top: sectionElement.offsetTop - 120, // Adjusted for header + timeline
+        behavior: 'smooth'
+      });
+      
+      // After animation completes
+      setTimeout(() => {
+        isAnimating = false;
+      }, 1000);
+    } else {
       isAnimating = false;
-    }, 1000);
-  } else {
-    isAnimating = false;
-  }
-}
+    }
+  };
 
-// Initialize timeline
-timelineStops.forEach((stop, index) => {
-  stop.addEventListener('click', () => {
-    updateTimeline(index);
+  // Initialize timeline
+  timelineStops.forEach((stop, index) => {
+    stop.addEventListener('click', () => {
+      updateTimeline(index);
+    });
   });
-});
 
-// Handle keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowUp' && currentStop > 0) {
-    updateTimeline(currentStop - 1);
-  } else if (e.key === 'ArrowDown' && currentStop < timelineStops.length - 1) {
-    updateTimeline(currentStop + 1);
-  }
-});
-
-// Handle scroll events
-let lastScrollTime = 0;
-const scrollThreshold = 50; // Minimum time between scroll events
-
-document.addEventListener('wheel', (e) => {
-  const now = Date.now();
-  if (now - lastScrollTime < scrollThreshold) return;
-  lastScrollTime = now;
-
-  if (e.deltaY > 0 && currentStop < timelineStops.length - 1) {
-    updateTimeline(currentStop + 1);
-  } else if (e.deltaY < 0 && currentStop > 0) {
-    updateTimeline(currentStop - 1);
-  }
-}, { passive: true });
-
-// Handle touch events for mobile
-let touchStartY = 0;
-let touchEndY = 0;
-const touchThreshold = 50; // Minimum swipe distance
-
-document.addEventListener('touchstart', (e) => {
-  touchStartY = e.touches[0].clientY;
-});
-
-document.addEventListener('touchmove', (e) => {
-  touchEndY = e.touches[0].clientY;
-});
-
-document.addEventListener('touchend', () => {
-  const swipeDistance = touchEndY - touchStartY;
-  
-  if (Math.abs(swipeDistance) < touchThreshold) return;
-  
-  if (swipeDistance > 0 && currentStop > 0) {
-    updateTimeline(currentStop - 1);
-  } else if (swipeDistance < 0 && currentStop < timelineStops.length - 1) {
-    updateTimeline(currentStop + 1);
-  }
-});
-
-// Intersection Observer for timeline stops
-const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const index = Array.from(timelineStops).findIndex(
-        stop => stop.dataset.section === entry.target.id
-      );
-      if (index !== -1 && !isAnimating) {
-        updateTimeline(index);
-      }
+  // Handle keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp' && currentStop > 0) {
+      updateTimeline(currentStop - 1);
+    } else if (e.key === 'ArrowDown' && currentStop < timelineStops.length - 1) {
+      updateTimeline(currentStop + 1);
     }
   });
-}, {
-  threshold: 0.5
-});
 
-document.querySelectorAll('section[id]').forEach(section => {
-  timelineObserver.observe(section);
-});
+  // Handle scroll events
+  let lastScrollTime = 0;
+  const scrollThreshold = 50; // Minimum time between scroll events
 
-// Knowledge Map Visualization
-const knowledgeMap = document.querySelector('.knowledge-map');
-if (knowledgeMap) {
+  document.addEventListener('wheel', (e) => {
+    const now = Date.now();
+    if (now - lastScrollTime < scrollThreshold) return;
+    lastScrollTime = now;
+
+    if (e.deltaY > 0 && currentStop < timelineStops.length - 1) {
+      updateTimeline(currentStop + 1);
+    } else if (e.deltaY < 0 && currentStop > 0) {
+      updateTimeline(currentStop - 1);
+    }
+  }, { passive: true });
+
+  // Handle touch events for mobile
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const touchThreshold = 50; // Minimum swipe distance
+
+  document.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    touchEndY = e.touches[0].clientY;
+  });
+
+  document.addEventListener('touchend', () => {
+    const swipeDistance = touchEndY - touchStartY;
+    
+    if (Math.abs(swipeDistance) < touchThreshold) return;
+    
+    if (swipeDistance > 0 && currentStop > 0) {
+      updateTimeline(currentStop - 1);
+    } else if (swipeDistance < 0 && currentStop < timelineStops.length - 1) {
+      updateTimeline(currentStop + 1);
+    }
+  });
+
+  // Intersection Observer for timeline stops
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Array.from(timelineStops).findIndex(
+          stop => stop.dataset.section === entry.target.id
+        );
+        if (index !== -1 && !isAnimating) {
+          // Just update the active state without scrolling
+          timelineStops.forEach(stop => stop.classList.remove('active'));
+          timelineStops[index].classList.add('active');
+          currentStop = index;
+        }
+      }
+    });
+  }, {
+    threshold: 0.5,
+    rootMargin: '-120px 0px 0px 0px' // Adjust for header + timeline height
+  });
+
+  document.querySelectorAll('section[id]').forEach(section => {
+    timelineObserver.observe(section);
+  });
+};
+
+// Create Knowledge Graph
+const createKnowledgeGraph = () => {
+  const knowledgeMap = document.querySelector('.knowledge-map');
+  if (!knowledgeMap) return;
+  
   const nodes = knowledgeMap.querySelectorAll('.knowledge-node');
   const connections = knowledgeMap.querySelectorAll('.knowledge-connection');
   
@@ -274,66 +232,42 @@ if (knowledgeMap) {
       connections.forEach(c => c.classList.remove('active'));
     });
   });
-}
+};
 
-// Form Validation
-const contactForm = document.querySelector('.form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Add your form submission logic here
-    console.log('Form data:', data);
-    
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.classList.add('form__success');
-    successMessage.textContent = 'Message sent successfully!';
-    contactForm.appendChild(successMessage);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Remove success message after 3 seconds
-    setTimeout(() => {
-      successMessage.remove();
-    }, 3000);
+// Initialize Spoller (FAQ accordion)
+const initSpollers = () => {
+  const spollerButtons = document.querySelectorAll("[data-spoller] .spollers-faq__button");
+  if (!spollerButtons.length) return;
+
+  spollerButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const currentItem = button.closest("[data-spoller]");
+      const content = currentItem.querySelector(".spollers-faq__text");
+
+      const parent = currentItem.parentNode;
+      const isOneSpoller = parent.hasAttribute("data-one-spoller");
+
+      if (isOneSpoller) {
+        const allItems = parent.querySelectorAll("[data-spoller]");
+        allItems.forEach((item) => {
+          if (item !== currentItem) {
+            const otherContent = item.querySelector(".spollers-faq__text");
+            item.classList.remove("active");
+            otherContent.style.maxHeight = null;
+          }
+        });
+      }
+
+      if (currentItem.classList.contains("active")) {
+        currentItem.classList.remove("active");
+        content.style.maxHeight = null;
+      } else {
+        currentItem.classList.add("active");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
   });
-}
-
-const spollerButtons = document.querySelectorAll("[data-spoller] .spollers-faq__button");
-
-spollerButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const currentItem = button.closest("[data-spoller]");
-    const content = currentItem.querySelector(".spollers-faq__text");
-
-    const parent = currentItem.parentNode;
-    const isOneSpoller = parent.hasAttribute("data-one-spoller");
-
-    if (isOneSpoller) {
-      const allItems = parent.querySelectorAll("[data-spoller]");
-      allItems.forEach((item) => {
-        if (item !== currentItem) {
-          const otherContent = item.querySelector(".spollers-faq__text");
-          item.classList.remove("active");
-          otherContent.style.maxHeight = null;
-        }
-      });
-    }
-
-    if (currentItem.classList.contains("active")) {
-      currentItem.classList.remove("active");
-      content.style.maxHeight = null;
-    } else {
-      currentItem.classList.add("active");
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-});
+};
 
 // Animate skill proficiency bars when in view
 const animateProficiencyBars = () => {
@@ -449,14 +383,13 @@ const updateCopyrightYear = () => {
 
 // Initialize all features
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize existing functions
   initMobileMenu();
   initSmoothScroll();
   initDarkModeToggle();
+  initFadeAnimations();
   setupTimeline();
   createKnowledgeGraph();
-  
-  // Initialize new functions
+  initSpollers();
   animateProficiencyBars();
   handleContactForm();
   updateCopyrightYear();
