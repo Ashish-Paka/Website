@@ -1,747 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashish Paka - Robotics & Autonomous Systems Engineer</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="img/favicon.png" />
-  <title>Ashish Paka - Robotics & Autonomous Systems Engineer</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      <div class="header__container">
-        <a href="index.html" class="header__logo logo">Ashish Paka</a>
-              <nav class="menu__body">
-                <ul class="menu__list">
-            <li class="menu__item"><a href="#about" class="menu__link">About</a></li>
-            <li class="menu__item"><a href="#education" class="menu__link">Education</a></li>
-            <li class="menu__item"><a href="#experience" class="menu__link">Experience</a></li>
-            <li class="menu__item"><a href="#projects" class="menu__link">Projects</a></li>
-            <li class="menu__item"><a href="#skills" class="menu__link">Skills</a></li>
-            <li class="menu__item"><a href="#publications" class="menu__link">Publications</a></li>
-            <li class="menu__item"><a href="#resume" class="menu__link">Resume</a></li>
-            <li class="menu__item"><a href="#contact" class="menu__link">Contact</a></li>
-                </ul>
-              </nav>
-        <button class="theme-toggle" aria-label="Toggle dark/light mode">
-          <i class="fas fa-sun light-icon" style="font-size: 1.2rem; color: #f8d568;"></i>
-          <i class="fas fa-moon dark-icon" style="font-size: 1.2rem; color: #ccd6f6;"></i>
-        </button>
-      </div>
-    </header>
+    <!-- Font Awesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    <main class="page">
-      <section class="browse-categories">
-        <div class="browse-container">
-          <!-- Active card container -->
-          <div class="active-card-container">
-            <div class="active-card-header">
-              <h2 class="active-card-title">About Me</h2>
-              <div class="active-card-subtitle">Robotics & Autonomous Systems Engineer</div>
-            </div>
-            <div class="active-card-content">
-              <p>I am a passionate <strong>Robotics Engineer</strong> with deep expertise in <strong>advanced perception, multi-robot coordination, reinforcement learning, and control systems</strong>. My academic journey—earning an <strong>M.S. in Robotics & Autonomous Systems</strong> from ASU and a <strong>B.Tech in Mechanical Engineering</strong> from Manipal Institute of Technology—has provided me with a solid foundation in mathematics, control theory, kinematics, and dynamics.</p>
-              
-              <p>I have refined my abilities through diverse hands-on projects and research, including:</p>
-              
-              <ul>
-                <li><strong>Research at LOGOS Robotics Lab:</strong><br>  
-                  Under Prof. Nakul Gopalan, I contributed to a <em>shared action space for human–robot collaboration</em> by combining skill learning, computer vision, and reinforcement learning.</li>
-                
-                <li><strong>Industrial & Aerospace Projects:</strong><br>  
-                  From designing rocket structures (<em>Project Arya</em> and <em>Project Vyom</em>) to developing plug gauge tools at BHEL and simulating Total Knee Replacement Implants, I have applied engineering principles across varied domains.</li>
-                
-                <li><strong>Innovation & Patents:</strong><br>  
-                  Recognized for innovation as the patent holder of "A SYSTEM FROM EJECTION" (Patent No: 506725).</li>
-              </ul>
-              
-              <p>I thrive on integrating robotics software with cutting-edge mechanical design to create transformative solutions that push the boundaries of autonomous systems.</p>
-            </div>
-          </div>
-          
-          <!-- Category cards in grid layout -->
-          <div class="cards-container">
-            <div class="category-cards">
-              <div class="category-card active" data-modal="about-modal">
-                <div class="card-image about-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">About</h3>
-                <p class="card-description">Passionate Robotics Engineer with expertise in advanced perception, multi-robot coordination, reinforcement learning, and control systems.</p>
-              </div>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-              <div class="category-card" data-modal="education-modal">
-                <div class="card-image education-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">Education</h3>
-                <p class="card-description">M.S. in Robotics and Autonomous Systems (ASU), B.Tech in Mechanical Engineering (Manipal Institute of Technology).</p>
-              </div>
+  <body>
+    <!-- Construction Notice -->
+    <div class="construction-notice">
+      <i class="fas fa-hard-hat"></i>
+      <span>Website Under Construction - Pardon the dust while we build something amazing!</span>
+      <i class="fas fa-tools"></i>
+    </div>
 
-              <div class="category-card" data-modal="experience-modal">
-                <div class="card-image experience-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">Experience</h3>
-                <p class="card-description">Engineer at LTTS, Student Researcher at LOGOS Robotics Lab, Student Rocketry Lead at ThrustMIT.</p>
-              </div>
-
-              <div class="category-card" data-modal="projects-modal">
-                <div class="card-image projects-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">Projects</h3>
-                <p class="card-description">Shared Action Space, Swarm Robotics, VoxFormer, Expressive Robot Hand, and other innovative research projects.</p>
-              </div>
-
-              <div class="category-card" data-modal="skills-modal">
-                <div class="card-image skills-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">Skills</h3>
-                <p class="card-description">Robotics Software, Perception, Control Systems, Mechanical Design, Programming, and CAD/CAM expertise.</p>
-              </div>
-
-              <div class="category-card" data-modal="publications-modal">
-                <div class="card-image publications-bg">
-                  <div class="card-overlay"></div>
-                </div>
-                <h3 class="card-title">Publications</h3>
-                <p class="card-description">Research papers and patents in human-robot collaboration, multi-robot systems, and industrial automation.</p>
-              </div>
-            </div>
-          </div>
+    <div class="wrapper">
+      <!-- HEADER / NAV -->
+      <header class="header">
+        <div class="header__container">
+          <a href="#about" class="header__logo" id="logo-about-link">Ashish Paka</a>
+          <nav class="menu__body">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a href="#education" class="menu__link">Education</a>
+              </li>
+              <li class="menu__item">
+                <a href="#experience" class="menu__link">Experience</a>
+              </li>
+              <li class="menu__item">
+                <a href="#projects" class="menu__link">Projects</a>
+              </li>
+              <li class="menu__item">
+                <a href="#skills" class="menu__link">Skills</a>
+              </li>
+              <li class="menu__item">
+                <a href="#publications" class="menu__link">Publications</a>
+              </li>
+              <!-- Resume & Contact are popups -->
+              <li class="menu__item">
+                <a href="#resume" class="menu__link popup-trigger">Resume</a>
+              </li>
+              <li class="menu__item">
+                <a href="#contact" class="menu__link popup-trigger">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Theme toggle button -->
+          <button class="theme-toggle" aria-label="Toggle Dark/Light Theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
         </div>
-      </section>
+      </header>
 
-      <!-- Hidden modal containers with content -->
-      <div class="hidden-content" style="display: none;">
-        <div id="about-modal">
-          <div class="modal-content">
-            <h2>About Me</h2>
-            <div class="modal-body">
-              <p>I am a passionate <strong>Robotics Engineer</strong> with deep expertise in <strong>advanced perception, multi-robot coordination, reinforcement learning, and control systems</strong>. My academic journey—earning an <strong>M.S. in Robotics & Autonomous Systems</strong> from ASU and a <strong>B.Tech in Mechanical Engineering</strong> from Manipal Institute of Technology—has provided me with a solid foundation in mathematics, control theory, kinematics, and dynamics. These skills are crucial for designing and deploying real-world autonomous systems.</p>
-              
-              <p>I have refined my abilities through diverse hands-on projects and research, including:</p>
-              
-              <ul>
-                <li><strong>Research at LOGOS Robotics Lab:</strong><br>  
-                  Under Prof. Nakul Gopalan, I contributed to a <em>shared action space for human–robot collaboration</em> by combining skill learning, computer vision, and reinforcement learning.</li>
+      <!-- MAIN CONTENT -->
+      <main class="page">
+        <section class="browse-categories">
+          <div class="browse-container">
+            <!-- Left side (active card content, 65%) -->
+            <div class="active-card-container">
+              <div class="active-card-header">
+                <div class="profile-container">
+                  <div class="profile-photo-wrapper">
+                    <img src="img/Home-Me.jpg" alt="Ashish Paka" class="profile-photo" loading="eager">
+                  </div>
+                  <h2 class="active-card-title">Hi, I am Ashish. Nice to meet you!</h2>
+                </div>
+                <div class="active-card-subtitle">
+                  Robotics & Autonomous Systems Engineer
+                </div>
+              </div>
+              <div class="active-card-content" id="active-content">
+                <!-- Default content is "About Me" -->
+                <p class="about-intro">
+                  I am a designer and an engineer currently living in Tempe, Arizona. I'm pursuing my Master's in Robotics at Arizona State University, focusing on the fusion of human-robot interaction and multi-robot coordination. My design approach is known for its sophisticated simplicity and thoughtful details.
+                </p>
                 
-                <li><strong>Industrial & Aerospace Projects:</strong><br>  
-                  From designing rocket structures (<em>Project Arya</em> and <em>Project Vyom</em>) to developing plug gauge tools at BHEL and simulating Total Knee Replacement Implants, I have applied engineering principles across varied domains.</li>
+                <p>
+                  My expertise spans advanced perception systems, reinforcement learning algorithms, and creating intuitive robotic control interfaces. I'm passionate about developing transformative robotics technologies that meaningfully impact how people interact with machines. My foundation in mathematics, control theory, kinematics, and dynamics helps me build innovative solutions.
+                </p>
                 
-                <li><strong>Innovation & Patents:</strong><br>  
-                  Recognized for innovation as the patent holder of "A SYSTEM FROM EJECTION" (Patent No: 506725).</li>
-              </ul>
-              
-              <p>I thrive on integrating robotics software with cutting-edge mechanical design to create transformative solutions that push the boundaries of autonomous systems.</p>
-              
-              <h3>Research Interests & Technical Focus</h3>
-              <p>I concentrate on the following core areas—blending fundamental principles with advanced research methodologies:</p>
-              
-              <ul>
-                <li><strong>Swarm Robotics & Multi-Agent Systems:</strong><br>  
-                  <em>Exploring collaborative mapping, distributed decision-making, and reinforcement learning (MARL) to enable robust autonomous exploration and coordination.</em></li>
-                
-                <li><strong>Advanced Perception & Computer Vision:</strong><br>  
-                  <em>Leveraging deep learning, transformer-based models, and sensor fusion (LiDAR, TOF cameras, and conventional cameras) for real-time environmental understanding and occlusion-aware mapping.</em></li>
-                
-                <li><strong>Humanoid Robotics & Shared Action Space Learning:</strong><br>  
-                  <em>Developing adaptive models that empower humanoid systems to intuitively learn from and interact with humans using skill learning, action recognition, and self-supervised control.</em></li>
-                
-                <li><strong>Autonomous Driving (AD):</strong><br>  
-                  <em>Employing semantic scene completion, BEV mapping, and transformer-based perception to support occlusion-aware navigation and real-time decision-making in dynamic environments.</em></li>
-                
-                <li><strong>Control Systems & Kinematics:</strong><br>  
-                  <em>Utilizing classical PID, advanced motion planning, inverse kinematics, and Jacobian-based corrections to achieve precision in robotic motion and industrial automation.</em></li>
-                
-                <li><strong>Mechanical Design & Simulation:</strong><br>  
-                  <em>Applying advanced CAD tools (CREO, SOLIDWORKS, CATIA, Fusion360, Inventor) and simulation platforms (ANSYS for FEA/CFD) to design and analyze complex mechanical structures.</em></li>
-                
-                <li><strong>Mathematics & Computational Methods:</strong><br>  
-                  <em>Grounded in linear algebra, dynamics, and advanced system modeling to develop robust algorithms for perception, sensor fusion, and optimization.</em></li>
-              </ul>
-              
-              <div class="about-grid">
-                <div class="about-card">
-                  <h3>Vision</h3>
-                  <p>Creating intelligent autonomous systems that seamlessly integrate with human environments, enhancing our capabilities and improving quality of life.</p>
-                </div>
-                <div class="about-card">
-                  <h3>Mission</h3>
-                  <p>Advancing the field of robotics through interdisciplinary innovation—combining robust control, intelligent perception, and breakthrough mechanical design to shape the future of autonomous systems.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="education-modal">
-          <div class="modal-content">
-            <h2>Education</h2>
-            <div class="modal-body">
-              <div class="education-item">
-                <div class="education-period">2023 - 2025</div>
-                <div class="education-content">
-                  <h3>M.S. in Robotics and Autonomous Systems</h3>
-                  <h4>Arizona State University</h4>
-                  <p>Focusing on developing innovative solutions for human-robot collaboration, multi-robot systems, and industrial automation.</p>
-                  <h5>Key Focus Areas:</h5>
-                  <ul>
-                    <li>Reinforcement Learning & AI</li>
-                    <li>Computer Vision & Perception</li>
-                    <li>Motion Planning & Control</li>
-                    <li>Multi-Robot Systems</li>
-                    <li>Human-Robot Collaboration</li>
-                  </ul>
-                  <p><strong>Research:</strong> Developing Shared Action Spaces for Human-Robot Collaboration, focusing on creating more intuitive and efficient ways for humans and robots to work together.</p>
-                </div>
-              </div>
-              <div class="education-item">
-                <div class="education-period">2016 - 2020</div>
-                <div class="education-content">
-                  <h3>B.Tech in Mechanical Engineering</h3>
-                  <h4>Manipal Institute of Technology</h4>
-                  <p>Gained a solid foundation in mathematics, control theory, kinematics, and dynamics essential for robotics and autonomous systems.</p>
-                  <h5>Specializations:</h5>
-                  <ul>
-                    <li>Advanced Design & Analysis</li>
-                    <li>Finite Element Analysis (FEA)</li>
-                    <li>Computational Fluid Dynamics (CFD)</li>
-                    <li>Aerospace & Composites</li>
-                  </ul>
-                  <p><strong>Achievement:</strong> Member of ThrustMIT Rocketry Team, contributing to advanced rocketry design and analysis. Led structural design and manufacturing of rocket bodies for Projects Vyom and Arya launched from SpacePort America.</p>
-                </div>
-              </div>
-              
-              <h3>Certifications & Continuing Education</h3>
-              <ul class="certifications-list">
-                <li><strong>Self-Driving and ROS 2 – Odometry & Control</strong> (Antonio Brandi, Udemy)</li>
-                <li><strong>Self-Driving and ROS 2 – Map & Localization</strong> (Antonio Brandi, Udemy)</li>
-                <li><strong>Robotics and ROS 2 – Manipulators</strong> (Antonio Brandi, Udemy)</li>
-                <li><strong>Introduction to Programming with MATLAB</strong> (Vanderbilt University)</li>
-                <li><strong>The Complete Python Bootcamp from Zero to Hero in Python</strong> (Jose Portilla, Udemy)</li>
-                <li><strong>Autodesk Fusion 360 Integrated CAD/CAM/CAE</strong> (Autodesk Inc.)</li>
-                <li><strong>Introduction to Digital Manufacturing with Autodesk Fusion 360</strong> (Autodesk Inc.)</li>
-                <li><strong>Digital Manufacturing and Design</strong> (University at Buffalo, SUNY)</li>
-                <li><strong>Material Science: 10 Things Every Engineer Should Know</strong> (University of California, Davis)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="experience-modal">
-          <div class="modal-content">
-            <h2>Professional Experience</h2>
-            <div class="modal-body">
-              <div class="experience-item">
-                <div class="experience-period">2023 - 2025</div>
-                <div class="experience-content">
-                  <h3>Student Researcher – LOGOS Robotics Lab</h3>
-                  <h4>Arizona State University</h4>
-                  <p>Working on developing transformer-based models for human-robot motion alignment and exploring shared action spaces for intuitive collaboration in humanoid robotics.</p>
-                  <h5>Research Focus:</h5>
-                  <ul>
-                    <li>Developing transformer-based models for human–robot motion alignment</li>
-                    <li>Exploring shared action spaces to enable intuitive collaboration in humanoid robotics</li>
-                    <li>Working on perception systems for autonomous robots</li>
-                    <li>Implementing learning-based approaches for motion planning</li>
-                  </ul>
-                  <h5>Key Projects:</h5>
-                  <ul>
-                    <li>Human-Robot Collaboration Framework Development</li>
-                    <li>Reinforcement Learning for Robot Motion Planning</li>
-                    <li>Computer Vision Systems for Robot Perception</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="experience-item">
-                <div class="experience-period">2020 - 2023</div>
-                <div class="experience-content">
-                  <h3>Engineer – Larsen & Toubro Technology Services (LTTS)</h3>
-                  <h4>Bangalore, India</h4>
-                  <p>Worked as a mechanical product design and analysis engineer, progressing from intern to Engineer and successfully delivering 8+ projects.</p>
-                  <h5>Key Responsibilities:</h5>
-                  <ul>
-                    <li>Utilized advanced CAD tools (CREO, SOLIDWORKS, CATIA, Autodesk Fusion360, Inventor) to design products from refrigeration containers to buses and electronics systems</li>
-                    <li>Performed Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) using ANSYS workbench and APDL to ensure structural and thermal integrity</li>
-                    <li>Collaborated with international clients including Carrier Transicold, Scania, Eaton Corporation, and Cooper Lighting</li>
-                    <li>Managed project timelines and client communications</li>
-                  </ul>
-                  <h5>Achievements:</h5>
-                  <ul>
-                    <li>Progressed from intern to Engineer, successfully delivering 8+ projects</li>
-                    <li>Optimized design processes for improved efficiency</li>
-                    <li>Collaborated with cross-functional international teams</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="experience-item">
-                <div class="experience-period">2017 - 2020</div>
-                <div class="experience-content">
-                  <h3>Student Rocketry Lead – ThrustMIT (Vyom & Arya, SA Cup)</h3>
-                  <h4>Manipal Institute of Technology</h4>
-                  <p>Served as Senior Structures and Composites Member, leading the design and manufacturing of rocket bodies.</p>
-                  <h5>Key Contributions:</h5>
-                  <ul>
-                    <li>Led entire structural design and in-workshop manufacturing of rocket bodies for projects Vyom and Arya launched from SpacePort America</li>
-                    <li>Conducted advanced aerodynamic analysis and structural optimization</li>
-                    <li>Managed team coordination and project timelines</li>
-                    <li>Implemented innovative design solutions for lightweight and durable rocket structures</li>
-                  </ul>
-                  <h5>Achievements:</h5>
-                  <ul>
-                    <li>Awarded the Spot Award for Design (Project Arya, SA Cup 2019) for excellence in structural design</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="experience-item">
-                <div class="experience-period">2018 - 2020</div>
-                <div class="experience-content">
-                  <h3>Internships & Additional Projects</h3>
-                  <ul>
-                    <li><strong>BHEL, Hyderabad (June 2018):</strong>
-                      <ul>
-                        <li>Developed a Plain Plug Gauge tool for gas and steam turbine manufacturing design</li>
-                      </ul>
-                    </li>
-                    <li><strong>Total Knee Replacement Implant Simulation (June 2020):</strong>
-                      <ul>
-                        <li>Designed and simulated orthopedic implants using advanced modeling techniques</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="projects-modal">
-          <div class="modal-content">
-            <h2>Research & Projects</h2>
-            <div class="modal-body">
-              <div class="project-item">
-                <h3>1. Shared Action Space for Human–Robot Collaboration</h3>
-                <p><strong>Overview:</strong> Developing a framework that enables humanoid robots to predict and adapt to human actions by learning a shared action space.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Perception & Learning:</strong> Utilizes transformer-based vision models and deep reinforcement learning for self-supervised skill acquisition.</li>
-                    <li><strong>Control & Adaptation:</strong> Integrates probabilistic inference to allow real-time adjustments in collaborative tasks.</li>
-                  </ul>
-                  <p><strong>Impact:</strong> Enhances adaptive human–robot interaction, paving the way for robots that generalize actions and can request demonstrations when needed.</p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>2. Swarm Robotics for Collaborative Autonomous Mapping</h3>
-                <p><strong>Overview:</strong> Implemented a distributed multi-robot system for real-time exploration, mapping, and data fusion.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Sensor Integration:</strong> Uses TOF cameras and LiDAR for detailed environmental data capture.</li>
-                    <li><strong>SLAM & Graph Optimization:</strong> Deploys graph-based SLAM with pose-graph optimization (G2O) and loop closure techniques to generate globally consistent maps.</li>
-                    <li><strong>Reinforcement Learning:</strong> Leverages a Deep Q-Network (DQN) framework for intelligent exploration under uncertainty.</li>
-                    <li><strong>Data Fusion:</strong> Employs Bayesian occupancy grid fusion to merge individual robot maps coherently.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/Ashish-Paka/Multi-Robot_Systems_CollaborativeMapping" target="_blank">Swarm Mapping</a></p>
-                  <p><em>🤖✨ Robots working in unison make our world smarter!</em></p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>3. VoxFormer: Transformer-based Semantic Scene Completion for Autonomous Vehicles</h3>
-                <p><strong>Overview:</strong> Designed a model to reconstruct occluded scenes using camera-only inputs—a critical capability for autonomous driving perception.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Architecture:</strong> Combines a sparse voxel transformer (ViT) with occupancy grid mapping to intelligently fill in occluded areas.</li>
-                    <li><strong>Scene Reconstruction:</strong> Employs Bird's Eye View (BEV) projections to enhance detection of pedestrians, vehicles, and obstacles.</li>
-                    <li><strong>Optimization:</strong> Implements memory-efficient sparse voxel encoding for real-time deployment on platforms like NVIDIA Jetson AGX Xavier.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/Ashish-Paka/Voxformer_AutonomousDriving_TransformerModel" target="_blank">VoxFormer</a></p>
-                  <p><em>🚗💨 Enhancing safety through smarter scene understanding!</em></p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>4. Expressive Robot Hand – AI-driven Human–Robot Interaction</h3>
-                <p><strong>Overview:</strong> Created a robotic hand that mimics human gestures through advanced computer vision and adaptive control.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Vision Systems:</strong> Utilizes MediaPipe and OpenPose for precise hand tracking.</li>
-                    <li><strong>Sequence Prediction:</strong> Employs GRU-based neural networks for accurate gesture sequence prediction.</li>
-                    <li><strong>Reinforcement Learning:</strong> Implements policy gradient methods (e.g., PPO) for dynamic optimization of control strategies.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/Ashish-Paka/Expressive-Robot-Hand" target="_blank">Expressive Robot Hand</a></p>
-                  <p><em>✋🤖 Bringing lifelike interaction to robotics!</em></p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>5. 6-DOF Trajectory Optimization for Industrial Robotic Arms</h3>
-                <p><strong>Overview:</strong> Developed advanced path planning algorithms to achieve precise, collision-free motion in 6-degree-of-freedom industrial robots.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Motion Planning:</strong> Integrates RRT*, CHOMP, and STOMP algorithms for effective trajectory planning.</li>
-                    <li><strong>Control & Kinematics:</strong> Utilizes Jacobian-based corrections and PID control loops to minimize end-effector error and optimize movement.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/Ashish-Paka/6DOFCOBOT_TrajectoryPlanning_Kinematics" target="_blank">6DOF Cobot Path Planning</a></p>
-                  <p><em>🔄⚙️ Precision in every move!</em></p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>6. AR-VR Pass-through and Virtual Reality Environment</h3>
-                <p><strong>Overview:</strong> Developed immersive AR/VR applications for interactive simulation and gaming, blending cutting-edge software and hardware integration.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Development Tools:</strong> Uses Meta Quest Development Hub and Unity for immersive AR/VR experiences.</li>
-                    <li><strong>User Interaction:</strong> Designs intuitive interfaces that bridge real and virtual worlds, enhancing user engagement.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/stars/Ashish-Paka/lists/ar-vr-development" target="_blank">AR/VR Projects</a></p>
-                </div>
-              </div>
-              
-              <div class="project-item">
-                <h3>7. Image Recognition-based ML-DL Algorithms Comparison for E-commerce</h3>
-                <p><strong>Overview:</strong> Designed ML/DL models for classifying and sorting e-commerce product images, improving personalized recommendation systems.</p>
-                <div class="project-details">
-                  <h4>Technical Details:</h4>
-                  <ul>
-                    <li><strong>Data Processing:</strong> Leverages deep learning frameworks for image recognition and classification.</li>
-                    <li><strong>Personalization:</strong> Enhances user experience by tailoring recommendations based on automated product sorting.</li>
-                  </ul>
-                  <p><strong>Repository:</strong> <a href="https://github.com/Ashish-Paka/ML-DL-Models-Comparison_Images_FashionMNISTDataset-Classification_SearchPersonalisation.git" target="_blank">MLDL Image Classification Methods Comparison</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="skills-modal">
-          <div class="modal-content">
-            <h2>Technical Skills</h2>
-            <div class="modal-body">
-              <div class="skills-category">
-                <h3>Robotics Software & Simulation</h3>
-                <ul>
-                  <li><strong>Middleware & Frameworks:</strong> ROS 1/2 (Catkin, Nav2, MoveIt), V-Rep, Gazebo, PyBullet, MuJoCo</li>
-                  <li><strong>AR/VR Development:</strong> Meta Quest Development Hub and Unity AR/VR</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Advanced Perception & Computer Vision</h3>
-                <ul>
-                  <li><strong>Libraries & Tools:</strong> OpenCV, TensorFlow, PyTorch</li>
-                  <li><strong>Techniques:</strong> Transformer-based architectures (ViTs), sensor fusion (integrating LiDAR, TOF cameras, and visual sensors), and BEV mapping</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Control, Kinematics & Motion Planning</h3>
-                <ul>
-                  <li><strong>Control Systems:</strong> Classical PID, inverse kinematics, and modern control theories</li>
-                  <li><strong>Motion Planning Algorithms:</strong> RRT*, CHOMP, STOMP, A*</li>
-                  <li><strong>Mathematics & Modelling:</strong> Linear algebra, dynamics, and differential equations for robust system modeling</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Mechanical Design & Simulation</h3>
-                <ul>
-                  <li><strong>CAD & Simulation Software:</strong> CREO, SOLIDWORKS, CATIA, Autodesk Fusion360, Inventor; ANSYS (FEA, CFD, transient thermal analysis)</li>
-                  <li><strong>Manufacturing & Design:</strong> DFMA/DFMAE, rapid prototyping (3D printing), and structural design for aerospace and rocket systems</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Programming & Embedded Systems</h3>
-                <ul>
-                  <li><strong>Languages:</strong> Python, C/C++, Java, Embedded C, CUDA, MATLAB, Arduino, Bash, LaTeX</li>
-                  <li><strong>Development Tools:</strong> Git, Docker, IDEs across Linux, Windows, Android, and iOS</li>
-                </ul>
-              </div>
-              
-              <div class="skills-category">
-                <h3>Additional Engineering Domains</h3>
-                <ul>
-                  <li><strong>Mechanical Engineering:</strong> Expertise in Turbo Machines, Fluid Mechanics, Heat Transfer, Strength of Materials, and FEA</li>
-                  <li><strong>Control Theory & Mathematics:</strong> Courses in Linear Algebra, Modelling and Control of Robots, Dynamics and Control, and Advanced System Modelling</li>
-                </ul>
-              </div>
-              
-              <div class="skills-tools">
-                <h3>Software & Tools</h3>
-                <div class="tools-badges">
-                  <div class="badge-category">
-                    <h4>Programming & Development</h4>
-                    <div class="badges">
-                      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                      <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-                      <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=Mathworks&logoColor=white" alt="MATLAB">
-                      <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA">
-                      <img src="https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash">
-                      <img src="https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white" alt="LaTeX">
+                <h3>Research Interests & Technical Focus</h3>
+                <div class="interests-container">
+                  <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-robot"></i></div>
+                    <div class="interest-content">
+                      <h4>Human-Robot Collaboration</h4>
+                      <p>Developing transformer-based models that enable humanoid robots to predict and adapt to human actions through self-supervised skill acquisition at LOGOS Robotics Lab.</p>
                     </div>
                   </div>
                   
-                  <div class="badge-category">
-                    <h4>Robotics & Simulation</h4>
-                    <div class="badges">
-                      <img src="https://img.shields.io/badge/ROS-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS">
-                      <img src="https://img.shields.io/badge/Gazebo-EB4034?style=for-the-badge&logo=gazebo&logoColor=white" alt="Gazebo">
-                      <img src="https://img.shields.io/badge/PyBullet-FF9900?style=for-the-badge&logo=python&logoColor=white" alt="PyBullet">
-                      <img src="https://img.shields.io/badge/MuJoCo-5A5A5A?style=for-the-badge&logo=robotframework&logoColor=white" alt="MuJoCo">
-                      <img src="https://img.shields.io/badge/MoveIt-512BD4?style=for-the-badge&logo=robotframework&logoColor=white" alt="MoveIt">
+                  <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="interest-content">
+                      <h4>Swarm Robotics</h4>
+                      <p>Implementing distributed multi-robot systems using TOF cameras, LiDAR, and Deep Q-Networks for robust autonomous exploration and coordination.</p>
                     </div>
                   </div>
                   
-                  <div class="badge-category">
-                    <h4>AI & Perception</h4>
-                    <div class="badges">
-                      <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-                      <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
-                      <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
-                      <img src="https://img.shields.io/badge/Vision--Transformers-764ABC?style=for-the-badge&logo=pytorch&logoColor=white" alt="Vision Transformers">
+                  <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    <div class="interest-content">
+                      <h4>Semantic Scene Completion</h4>
+                      <p>Designing transformer models (VoxFormer) that reconstruct occluded scenes using camera-only inputs—critical for autonomous vehicle perception and navigation.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <h3>Previous Experience</h3>
+                <div class="experience-highlights">
+                  <div class="exp-highlight">
+                    <div class="exp-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="exp-content">
+                      <h4>Aerospace & Rocketry</h4>
+                      <p>Led structural design and manufacturing of rocket bodies for Projects Vyom and Arya at ThrustMIT.</p>
                     </div>
                   </div>
                   
-                  <div class="badge-category">
-                    <h4>CAD & Mechanical Design</h4>
-                    <div class="badges">
-                      <img src="https://img.shields.io/badge/PTC_Creo-00599C?style=for-the-badge&logo=PTC&logoColor=white" alt="PTC Creo">
-                      <img src="https://img.shields.io/badge/SolidWorks-E2231A?style=for-the-badge&logo=dassaultsystemes&logoColor=white" alt="SolidWorks">
-                      <img src="https://img.shields.io/badge/Fusion%20360-FAA41A?style=for-the-badge&logo=autodesk&logoColor=white" alt="Fusion 360">
-                      <img src="https://img.shields.io/badge/ANSYS-FF9900?style=for-the-badge&logo=ansys&logoColor=white" alt="ANSYS">
+                  <div class="exp-highlight">
+                    <div class="exp-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <div class="exp-content">
+                      <h4>Mechanical Design</h4>
+                      <p>Utilized CAD tools and analysis methods at LTTS for international clients.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="exp-highlight">
+                    <div class="exp-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="exp-content">
+                      <h4>Innovation & Patents</h4>
+                      <p>Inventor of "A SYSTEM FROM EJECTION" (Patent No: 506725) and contributor to multiple robotics publications.</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div id="publications-modal">
-          <div class="modal-content">
-            <h2>Publications & Patents</h2>
-            <div class="modal-body">
-              <div class="publication-item">
-                <h3>Shared Action Spaces: A Framework for Human-Robot Collaboration</h3>
-                <p class="publication-authors">Ashish Paka, et al.</p>
-                <p class="publication-venue">International Conference on Robotics and Automation (ICRA), 2024</p>
-                <p class="publication-abstract">Novel framework for enabling intuitive human-robot collaboration through shared action spaces, incorporating reinforcement learning and computer vision for dynamic task allocation.</p>
-                <div class="publication-tags">
-                  <span>Human-Robot Collaboration</span>
-                  <span>Reinforcement Learning</span>
-                  <span>Computer Vision</span>
+            <!-- Right side (cards in a grid) -->
+            <div class="cards-container">
+              <div class="category-cards">
+                <!-- About -->
+                <div class="category-card" data-modal="about-modal" data-section="About">
+                  <div class="card-image about-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">About</h3>
+                    <p class="card-description">
+                      Robotics & Autonomous Systems Engineer specializing in advanced perception, multi-robot coordination, reinforcement learning, and control systems.
+                    </p>
+                  </div>
+                </div>
+                <!-- Education -->
+                <div class="category-card" data-modal="education-modal" data-section="Education">
+                  <div class="card-image education-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Education</h3>
+                    <p class="card-description">
+                      M.S. in Robotics & Autonomous Systems (ASU, GPA: 3.96/4.0), B.Tech in Mechanical Engineering (MIT, GPA: 7.49/10.0)
+                    </p>
+                  </div>
+                </div>
+                <!-- Experience -->
+                <div class="category-card" data-modal="experience-modal" data-section="Experience">
+                  <div class="card-image experience-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Experience</h3>
+                    <p class="card-description">
+                      Student Researcher at LOGOS Robotics Lab, Engineer at LTTS, Student Rocketry Lead at ThrustMIT
+                    </p>
+                  </div>
+                </div>
+                <!-- Projects -->
+                <div class="category-card" data-modal="projects-modal" data-section="Projects">
+                  <div class="card-image projects-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Projects</h3>
+                    <p class="card-description">
+                      Shared Action Space, Swarm Robotics, VoxFormer, Expressive Robot Hand, AR/VR, 6-DOF Path Planning
+                    </p>
+                  </div>
+                </div>
+                <!-- Skills -->
+                <div class="category-card" data-modal="skills-modal" data-section="Skills">
+                  <div class="card-image skills-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Skills</h3>
+                    <p class="card-description">
+                      ROS 1/2, Computer Vision, ML/DL, CAD/CAM, Mechanical Design, Programming, AR-VR
+                    </p>
+                  </div>
+                </div>
+                <!-- Publications -->
+                <div class="category-card" data-modal="publications-modal" data-section="Publications">
+                  <div class="card-image publications-bg"></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Publications</h3>
+                    <p class="card-description">
+                      Patent on ejection systems, ICRA 2024 paper on human-robot collaboration, IEEE T-RO publication on multi-robot systems
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HIDDEN MODALS (the actual section content) -->
+        <div class="hidden-content" style="display:none;">
+          <!-- About Modal -->
+          <div id="about-modal">
+            <p class="about-intro">
+              I am a Robotics & Autonomous Systems Engineer with expertise in advanced perception, multi-robot coordination, 
+              reinforcement learning, and control systems. My academic journey—M.S. in Robotics from ASU and B.Tech in 
+              Mechanical Engineering from Manipal Institute of Technology—has equipped me with a strong foundation in 
+              mathematics, control theory, kinematics, and dynamics.
+            </p>
+            
+            <h3>Research Interests & Technical Focus</h3>
+            <div class="interests-container">
+              <div class="interest-item">
+                <div class="interest-icon"><i class="fas fa-robot"></i></div>
+                <div class="interest-content">
+                  <h4>Human-Robot Collaboration</h4>
+                  <p>Developing transformer-based models that enable humanoid robots to predict and adapt to human actions through self-supervised skill acquisition at LOGOS Robotics Lab.</p>
                 </div>
               </div>
               
-              <div class="publication-item">
-                <h3>Adaptive Motion Planning for Multi-Robot Systems</h3>
-                <p class="publication-authors">Ashish Paka, et al.</p>
-                <p class="publication-venue">IEEE Transactions on Robotics (T-RO), 2023</p>
-                <p class="publication-abstract">Advanced motion planning algorithms for coordinating multiple robots in dynamic environments, with emphasis on collision avoidance and task optimization.</p>
-                <div class="publication-tags">
-                  <span>Multi-Robot Systems</span>
-                  <span>Motion Planning</span>
-                  <span>Optimization</span>
+              <div class="interest-item">
+                <div class="interest-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="interest-content">
+                  <h4>Swarm Robotics</h4>
+                  <p>Implementing distributed multi-robot systems using TOF cameras, LiDAR, and Deep Q-Networks for robust autonomous exploration and coordination.</p>
                 </div>
               </div>
               
-              <div class="patents-section">
-                <h3>Patents</h3>
-                
-                <div class="publication-item">
-                  <h3>A SYSTEM FROM EJECTION</h3>
-                  <p class="publication-authors">Inventors: Ashish Paka, et al.</p>
-                  <p class="publication-venue">Patent No: 506725</p>
-                  <p class="publication-abstract">Innovative system for controlled ejection mechanisms with applications in aerospace and industrial automation sectors.</p>
+              <div class="interest-item">
+                <div class="interest-icon"><i class="fas fa-vr-cardboard"></i></div>
+                <div class="interest-content">
+                  <h4>Semantic Scene Completion</h4>
+                  <p>Designing transformer models (VoxFormer) that reconstruct occluded scenes using camera-only inputs—critical for autonomous vehicle perception and navigation.</p>
                 </div>
-                
-                <div class="publication-item">
-                  <h3>System and Method for Collaborative Robot Task Learning</h3>
-                  <p class="publication-authors">Inventors: Ashish Paka, et al.</p>
-                  <p class="publication-venue">US Patent Application No. 17/XXX,XXX (Filed 2023)</p>
-                  <p class="publication-abstract">Novel system for enabling robots to learn complex tasks through demonstration and reinforcement, incorporating advanced perception and control mechanisms.</p>
-                  <div class="publication-tags">
-                    <span>Robot Learning</span>
-                    <span>Task Automation</span>
-                    <span>Control Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Modal -->
+          <div id="education-modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="education-item">
+                  <div class="education-period">2023 - 2025</div>
+                  <div class="education-content">
+                    <h3>M.S. in Robotics & Autonomous Systems</h3>
+                    <h4>Arizona State University, Tempe, AZ</h4>
+                    <p>GPA: 3.96/4.0</p>
+                    <p>
+                      <strong>Courses:</strong> Linear Algebra, Machine Learning, Deep Learning, Perception in Robotics, AR-VR Systems, Expressive Robotics, Modeling & Control of Robots, Reinforcement Learning, Multi-Robot Systems
+                    </p>
+                    <p>
+                      <strong>Research:</strong> Developing a shared action space for human-robot collaboration under Prof. Nakul Gopalan at LOGOS Robotics Lab.
+                    </p>
+                  </div>
+                </div>
+                <div class="education-item">
+                  <div class="education-period">2016 - 2020</div>
+                  <div class="education-content">
+                    <h3>B.Tech in Mechanical Engineering</h3>
+                    <h4>Manipal Institute of Technology, Manipal, India</h4>
+                    <p>GPA: 7.49/10.00</p>
+                    <p>Major specialization in Mechanical Design; completed various coursework in heat transfer, fluid mechanics, FEA, manufacturing, thermodynamics, and advanced composites.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div id="resume-modal">
-          <div class="modal-content">
-            <h2>Resume</h2>
-            <div class="modal-body">
-              <div class="resume-download">
-                <a href="downloads/Resume-Ashish.pdf" class="button" download>
-                  <i class="fas fa-file-pdf"></i> Download PDF
-                </a>
-                <a href="downloads/Resume-Ashish.docx" class="button" download>
-                  <i class="fas fa-file-word"></i> Download Word
-                </a>
-              </div>
-              <div class="resume-summary">
-                <h3>Professional Summary</h3>
-                <p>I am a passionate <strong>Robotics Engineer</strong> with deep expertise in <strong>advanced perception, multi-robot coordination, reinforcement learning, and control systems</strong>. My academic journey—earning an <strong>M.S. in Robotics & Autonomous Systems</strong> from ASU and a <strong>B.Tech in Mechanical Engineering</strong> from Manipal Institute of Technology—has provided me with a solid foundation in mathematics, control theory, kinematics, and dynamics. These skills are crucial for designing and deploying real-world autonomous systems.</p>
-                <p>My research focuses on creating transformative solutions that push the boundaries of autonomous systems, with particular emphasis on human-robot collaboration, multi-robot systems, and industrial automation.</p>
-              </div>
-              <div class="resume-details">
-                <h3>Education</h3>
-                <p><strong>2023 - 2025:</strong> M.S. in Robotics and Autonomous Systems, Arizona State University<br>
-                <strong>2016 - 2020:</strong> B.Tech in Mechanical Engineering, Manipal Institute of Technology</p>
-                
-                <h3>Experience</h3>
-                <p><strong>2023 - 2025:</strong> Student Researcher – LOGOS Robotics Lab, Arizona State University<br>
-                <strong>2020 - 2023:</strong> Engineer – Larsen & Toubro Technology Services (LTTS), Bangalore, India<br>
-                <strong>2017 - 2020:</strong> Student Rocketry Lead – ThrustMIT (Vyom & Arya, SA Cup)</p>
-                
-                <h3>Research Interests</h3>
-                <ul>
-                  <li>Swarm Robotics & Multi-Agent Systems</li>
-                  <li>Advanced Perception & Computer Vision</li>
-                  <li>Humanoid Robotics & Shared Action Space Learning</li>
-                  <li>Autonomous Driving (AD)</li>
-                  <li>Control Systems & Kinematics</li>
-                  <li>Mechanical Design & Simulation</li>
-                </ul>
-                
-                <h3>Key Projects</h3>
-                <ul>
-                  <li>Shared Action Space for Human–Robot Collaboration</li>
-                  <li>Swarm Robotics for Collaborative Autonomous Mapping</li>
-                  <li>VoxFormer: Transformer-based Semantic Scene Completion for Autonomous Vehicles</li>
-                  <li>Expressive Robot Hand – AI-driven Human–Robot Interaction</li>
-                  <li>6-DOF Trajectory Optimization for Industrial Robotic Arms</li>
-                </ul>
-                
-                <h3>Technical Skills</h3>
-                <p>Robotics Software & Simulation, Advanced Perception & Computer Vision, Control Systems & Kinematics, Mechanical Design & Simulation, Programming & Embedded Systems.</p>
-                
-                <h3>Contact</h3>
-                <p>Email: <a href="mailto:ashishpaka1998@gmail.com">ashishpaka1998@gmail.com</a><br>
-                Location: Arizona State University, Tempe, AZ<br>
-                Social: <a href="https://github.com/Ashish-Paka" target="_blank">GitHub</a>, <a href="http://www.linkedin.com/in/ashish-autonomousrobotics" target="_blank">LinkedIn</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="contact-modal">
-          <div class="modal-content">
-            <h2>Contact</h2>
-            <div class="modal-body">
-              <div class="contact-grid">
-                <div class="contact-info">
-                  <h3>Get In Touch</h3>
-                  <p>I'm always interested in discussing robotics, autonomous systems, or potential collaborations. Let's advance robotics through interdisciplinary innovation—combining robust control, intelligent perception, and breakthrough mechanical design to shape the future of autonomous systems!</p>
-                  <div class="contact-details">
-                    <div class="contact-item">
-                      <i class="fas fa-envelope"></i>
-                      <div>
-                        <h4>Email</h4>
-                        <a href="mailto:ashishpaka1998@gmail.com">ashishpaka1998@gmail.com</a>
-                      </div>
-                    </div>
-                    <div class="contact-item">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <div>
-                        <h4>Location</h4>
-                        <p>Arizona State University<br>Tempe, AZ</p>
-                      </div>
-                    </div>
-                    <div class="contact-item">
-                      <i class="fas fa-link"></i>
-                      <div>
-                        <h4>Social</h4>
-                        <div class="social-links">
-                          <a href="https://github.com/Ashish-Paka" target="_blank">GitHub</a>
-                          <a href="http://www.linkedin.com/in/ashish-autonomousrobotics" target="_blank">LinkedIn</a>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Experience Modal -->
+          <div id="experience-modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="experience-item">
+                  <div class="experience-period">2023 - Present</div>
+                  <div class="experience-content">
+                    <h3>Student Researcher – LOGOS Robotics Lab</h3>
+                    <p>Working on transformer-based models for human–robot motion alignment and exploring shared action spaces for collaboration in humanoid robotics at ASU.</p>
                   </div>
                 </div>
-                <div class="contact-form">
-                  <form id="contact-form">
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="subject">Subject</label>
-                      <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="message">Message</label>
-                      <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="button">Send Message</button>
-                  </form>
+                <div class="experience-item">
+                  <div class="experience-period">2020 - 2023</div>
+                  <div class="experience-content">
+                    <h3>Engineer – Larsen & Toubro Technology Services (LTTS)</h3>
+                    <p>Mechanical product design & analysis using Creo, SOLIDWORKS, CATIA, Autodesk Fusion360, ANSYS; delivering 8+ successful projects for international clients.</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <div class="experience-period">2017 - 2020</div>
+                  <div class="experience-content">
+                    <h3>Student Rocketry Lead – ThrustMIT</h3>
+                    <p>Led structural design and manufacturing of rocket bodies (Vyom and Arya) launched from SpacePort America. Earned the Spot Award for Design.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer__container">
-        <div class="footer__info">
-          <p class="footer__tagline">Robotics & Autonomous Systems Engineer</p>
-          <div class="footer__social">
-            <a href="https://github.com/Ashish-Paka" target="_blank" class="footer__social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="http://www.linkedin.com/in/ashish-autonomousrobotics" target="_blank" class="footer__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:ashishpaka1998@gmail.com" class="footer__social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://scholar.google.com" target="_blank" class="footer__social-link" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <!-- Projects Modal -->
+          <div id="projects-modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <ul>
+                  <li>
+                    <strong>Shared Action Space for Human-Robot Collaboration</strong><br>
+                    Transformer-based models for humanoid robots to predict and adapt to human actions through self-supervised skill acquisition.
+                  </li>
+                  <li>
+                    <strong>Swarm Robotics for Collaborative Mapping</strong><br>
+                    Multi-robot systems with TOF/LiDAR sensors, RL-based exploration, and real-time map fusion.
+                  </li>
+                  <li>
+                    <strong>VoxFormer & Semantic Scene Completion</strong><br>
+                    Camera-only solutions for detecting occluded regions in autonomous vehicles using sparse voxel transformers.
+                  </li>
+                  <li>
+                    <strong>Expressive Robot Hand</strong><br>
+                    Vision-enabled robotic hand mimicking human gestures via AI-ML-RL integration.
+                  </li>
+                  <li>
+                    <strong>AR-VR Environment</strong><br>
+                    Immersive applications with Meta Quest & Unity, bridging software/hardware components.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Modal -->
+          <div id="skills-modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="skills-section">
+                  <h3>Robotics & AI</h3>
+                  <div class="skills-list">
+                    <span class="skill-tag">ROS 1/2</span>
+                    <span class="skill-tag">Gazebo</span>
+                    <span class="skill-tag">MoveIt</span>
+                    <span class="skill-tag">PyBullet</span>
+                    <span class="skill-tag">MuJoCo</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Reinforcement Learning</span>
+                    <span class="skill-tag">SLAM</span>
+                    <span class="skill-tag">Multi-Robot Systems</span>
+                  </div>
+                </div>
+                
+                <div class="skills-section">
+                  <h3>Programming</h3>
+                  <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">CUDA</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                  </div>
+                </div>
+                
+                <div class="skills-section">
+                  <h3>ML/DL Frameworks</h3>
+                  <div class="skills-list">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">NumPy</span>
+                  </div>
+                </div>
+                
+                <div class="skills-section">
+                  <h3>CAD/CAM & Mechanical Design</h3>
+                  <div class="skills-list">
+                    <span class="skill-tag">CREO</span>
+                    <span class="skill-tag">SOLIDWORKS</span>
+                    <span class="skill-tag">CATIA</span>
+                    <span class="skill-tag">Fusion 360</span>
+                    <span class="skill-tag">ANSYS</span>
+                    <span class="skill-tag">FEA/CFD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publications Modal -->
+          <div id="publications-modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <ul>
+                  <li>
+                    <strong>A SYSTEM FROM EJECTION</strong> (Patent No: 506725)<br>
+                    Novel system for controlled ejection mechanisms in aerospace & industrial automation.
+                  </li>
+                  <li>
+                    <strong>Shared Action Spaces for Human-Robot Collaboration</strong><br>
+                    Conference Paper (ICRA 2024)
+                  </li>
+                  <li>
+                    <strong>Adaptive Motion Planning for Multi-Robot Systems</strong><br>
+                    IEEE Transactions on Robotics (T-RO), 2023
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer__copyright">Copyright © <span id="current-year">2024</span> Ashish Paka – All Rights Reserved</div>
-      </div>
-    </footer>
-  </div>
-  <script src="js/script.js"></script>
+      </main>
 
-  <!-- Add popup modal structure for Resume and Contact -->
-  <div class="popup-modal" id="resume-popup">
-    <div class="popup-content">
-      <span class="close-popup">&times;</span>
-      <div class="popup-body">
-        <!-- Resume content will be injected here -->
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__info">
+            <p class="footer__tagline">
+              Robotics & Autonomous Systems Engineer
+            </p>
+            <div class="footer__social">
+              <a
+                href="https://github.com/Ashish-Paka"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="http://www.linkedin.com/in/ashish-autonomousrobotics"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="mailto:ashishpaka1998@gmail.com"
+                class="footer__social-link"
+                aria-label="Email"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer__copyright">
+            Copyright ©
+            <span id="current-year"></span> Ashish Paka – All Rights Reserved
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- POPUP MODALS (Resume & Contact) -->
+    <div class="popup-modal" id="resume-popup">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <div class="popup-body">
+          <h2>Resume</h2>
+          <div class="resume-download">
+            <a href="downloads/Resume-Ashish.pdf" class="button" download>
+              <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+            <a href="downloads/Resume-Ashish.docx" class="button" download>
+              <i class="fas fa-file-word"></i> Download Word
+            </a>
+          </div>
+          <div class="resume-summary">
+            <h3>Professional Summary</h3>
+            <p>
+              I am a Robotics & Autonomous Systems Engineer with expertise in advanced perception, multi-robot coordination, 
+              reinforcement learning, and control systems. My academic journey—M.S. in Robotics from ASU and B.Tech in 
+              Mechanical Engineering from Manipal Institute of Technology—has equipped me with a strong foundation in 
+              mathematics, control theory, kinematics, and dynamics.
+            </p>
+
+            <h3>Education</h3>
+            <ul>
+              <li><strong>M.S. in Robotics and Autonomous Systems</strong> (GPA: 3.96/4.0)<br>
+                  Arizona State University, Tempe, AZ (2023-2025)</li>
+              <li><strong>B.Tech in Mechanical Engineering</strong> (GPA: 7.49/10.0)<br>
+                  Manipal Institute of Technology, Manipal, India (2016-2020)</li>
+            </ul>
+
+            <h3>Professional Experience</h3>
+            <ul>
+              <li><strong>Student Researcher, LOGOS Robotics Lab</strong> (2023-Present)<br>
+                  Developing transformer-based models for human-robot collaboration and shared action spaces.</li>
+              <li><strong>Engineer, Larsen & Toubro Technology Services (LTTS)</strong> (2020-2023)<br>
+                  Led mechanical product design and analysis for international clients using CAD/CAE tools.</li>
+              <li><strong>Student Rocketry Lead, ThrustMIT</strong> (2017-2020)<br>
+                  Designed and manufactured rocket bodies for space launch competitions.</li>
+            </ul>
+
+            <h3>Technical Skills</h3>
+            <div class="skills-section">
+              <h4>Robotics & AI</h4>
+              <div class="skills-list">
+                <span class="skill-tag">ROS 1/2</span>
+                <span class="skill-tag">Gazebo</span>
+                <span class="skill-tag">MoveIt</span>
+                <span class="skill-tag">PyBullet</span>
+                <span class="skill-tag">MuJoCo</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Reinforcement Learning</span>
+                <span class="skill-tag">SLAM</span>
+                <span class="skill-tag">Multi-Robot Systems</span>
+              </div>
+            </div>
+            
+            <div class="skills-section">
+              <h4>Programming</h4>
+              <div class="skills-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C/C++</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">CUDA</span>
+                <span class="skill-tag">Bash</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+              </div>
+            </div>
+            
+            <div class="skills-section">
+              <h4>ML/DL Frameworks</h4>
+              <div class="skills-list">
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">OpenCV</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">NumPy</span>
+              </div>
+            </div>
+            
+            <div class="skills-section">
+              <h4>CAD/CAM & Mechanical Design</h4>
+              <div class="skills-list">
+                <span class="skill-tag">CREO</span>
+                <span class="skill-tag">SOLIDWORKS</span>
+                <span class="skill-tag">CATIA</span>
+                <span class="skill-tag">Fusion 360</span>
+                <span class="skill-tag">ANSYS</span>
+                <span class="skill-tag">FEA/CFD</span>
+              </div>
+            </div>
+
+            <h3>Projects</h3>
+            <ul>
+              <li><strong>Shared Action Space for Human-Robot Collaboration</strong> - Transformer-based models for humanoid robots to predict and adapt to human actions.</li>
+              <li><strong>Swarm Robotics for Collaborative Mapping</strong> - Multi-robot systems for autonomous exploration with TOF/LiDAR sensors.</li>
+              <li><strong>VoxFormer & Semantic Scene Completion</strong> - Camera-only solutions for detecting occluded regions in autonomous vehicles.</li>
+              <li><strong>AR-VR Environment</strong> - Immersive applications with Meta Quest & Unity for human-robot interaction.</li>
+              <li><strong>Expressive Robot Hand</strong> - Vision-enabled robotic hand mimicking human gestures via AI-ML-RL integration.</li>
+            </ul>
+
+            <h3>Publications & Patents</h3>
+            <ul>
+              <li><strong>A SYSTEM FROM EJECTION</strong> (Patent No: 506725) - Novel system for controlled ejection mechanisms.</li>
+              <li><strong>Shared Action Spaces for Human-Robot Collaboration</strong> - Conference Paper (ICRA 2024)</li>
+              <li><strong>Adaptive Motion Planning for Multi-Robot Systems</strong> - IEEE Transactions on Robotics (T-RO), 2023</li>
+            </ul>
+
+            <h3>Certifications</h3>
+            <div class="certificate-list">
+              <div class="certificate-item">Self-Driving and ROS 2 (Odometry & Control, Map & Localization)</div>
+              <div class="certificate-item">Robotics and ROS 2 Manipulators</div>
+              <div class="certificate-item">Introduction to Programming with MATLAB (Vanderbilt University)</div>
+              <div class="certificate-item">Complete Python Bootcamp (Udemy)</div>
+              <div class="certificate-item">Fusion 360 Integrated CAD/CAM/CAE (Autodesk)</div>
+              <div class="certificate-item">Digital Manufacturing & Design (University at Buffalo)</div>
+              <div class="certificate-item">Material Science: 10 Things Every Engineer Should Know (UC Davis)</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="popup-modal" id="contact-popup">
-    <div class="popup-content">
-      <span class="close-popup">&times;</span>
-      <div class="popup-body">
-        <!-- Contact content will be injected here -->
+    <div class="popup-modal" id="contact-popup">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <div class="popup-body">
+          <h2>Contact</h2>
+          <p>
+            Feel free to reach out for any collaboration or queries regarding robotics, multi-robot systems, 
+            autonomous vehicles, or advanced perception R&D. I'm open to research collaborations, job opportunities, 
+            and networking with fellow robotics enthusiasts.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <strong>Email:</strong>
+              <a href="mailto:ashishpaka1998@gmail.com">ashishpaka1998@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-graduation-cap"></i>
+              <strong>Academic:</strong>
+              <a href="mailto:apaka@asu.edu">apaka@asu.edu</a> (ASU)
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <strong>Location:</strong>
+              <span>Tempe, Arizona (ASU)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <strong>GitHub:</strong>
+              <a href="https://github.com/Ashish-Paka" target="_blank">github.com/Ashish-Paka</a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <strong>LinkedIn:</strong>
+              <a href="http://www.linkedin.com/in/ashish-autonomousrobotics" target="_blank">linkedin.com/in/ashish-autonomousrobotics</a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-google-scholar"></i>
+              <strong>Google Scholar:</strong>
+              <a href="#" target="_blank">Ashish Paka</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-calendar-alt"></i>
+              <strong>Schedule a Meeting:</strong>
+              <a href="#" target="_blank">Calendly</a>
+            </div>
+          </div>
+          <form id="contact-form" class="contact-form">
+            <h3>Send a Message</h3>
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="Your email address" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" placeholder="What's this regarding?" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" rows="5" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="button">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</body>
 
+    <!-- MAIN SCRIPT -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
