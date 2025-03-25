@@ -78,8 +78,10 @@ function loadAboutContent() {
           </div>
           <h2 class="active-card-title">Hi, I am Ashish. Nice to meet you!</h2>
         </div>
-        <div class="active-card-subtitle">
-          Robotics & Autonomous Systems Engineer
+        <div class="subtitle-wrapper" style="text-align: center; margin-bottom: 2rem;">
+          <div class="active-card-subtitle">
+            Robotics & Autonomous Systems Engineer
+          </div>
         </div>
       `;
     }
@@ -132,9 +134,6 @@ categoryCards.forEach((card, index) => {
           if (headerEl) {
             headerEl.innerHTML = `
               <h2 class="active-card-title">${sectionTitle}</h2>
-              <div class="active-card-subtitle">
-                Robotics & Autonomous Systems Engineer
-              </div>
             `;
           }
         }

@@ -260,6 +260,7 @@ a:hover {
     linear-gradient(120deg, rgba(255,255,255, 0.95) 0%, rgba(255,255,255, 0.95) 100%),
     linear-gradient(120deg, rgba(176,218,255, 0.15) 0%, rgba(230,240,255, 0.25) 100%);
   background-blend-mode: overlay;
+  animation: cardFadeIn 0.5s ease-out;
 }
 
 .active-card-container::before {
@@ -297,6 +298,11 @@ a:hover {
   font-weight: 700;
   letter-spacing: -0.03em;
   animation: fadeInUp 1s ease;
+  background-image: linear-gradient(135deg, var(--heading-color) 0%, var(--heading-color) 70%, var(--accent-color) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100%;
 }
 .active-card-subtitle {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -308,7 +314,38 @@ a:hover {
   margin-bottom: 2.5rem;
   font-weight: 700;
   animation: fadeInUp 1.2s ease;
+  position: relative;
+  background-image: linear-gradient(135deg, var(--accent-color) 0%, #5f8dff 50%, #87adff 100%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.25rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  background-color: rgba(58, 134, 255, 0.05);
 }
+
+.active-card-subtitle::before,
+.active-card-subtitle::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 30px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  top: 50%;
+}
+
+.active-card-subtitle::before {
+  left: -40px;
+}
+
+.active-card-subtitle::after {
+  right: -40px;
+}
+
 .about-intro {
   font-size: 1.3rem;
   color: var(--heading-color);
@@ -329,7 +366,30 @@ a:hover {
   margin-bottom: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: inline-block;
 }
+
+.active-card-content h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  border-radius: 3px;
+}
+
+.active-card-content h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  letter-spacing: -0.01em;
+}
+
 .active-card-content p {
   margin-bottom: 1rem;
   line-height: 1.6;
@@ -337,13 +397,26 @@ a:hover {
 .active-card-content ul {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
+  list-style: none;
 }
-.active-card-content li {
+.active-card-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
   margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+.active-card-content ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 .active-card-content strong {
-  color: var(--heading-color);
+  position: relative;
   font-weight: 600;
+  color: var(--accent-color);
 }
 /* Right side (cards) */
 .cards-container {
@@ -469,7 +542,7 @@ a:hover {
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
   opacity: 0.9;
 }
-.publications-bg { 
+.patent-bg { 
   background: linear-gradient(135deg, #000000 0%, #434343 100%);
   opacity: 0.9;
 }
@@ -499,13 +572,16 @@ a:hover {
 .education-period,
 .experience-period {
   display: inline-block;
-  font-weight: 500;
-  color: var(--accent-color);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
   padding: 0.2rem 0.8rem;
-  background-color: var(--accent-color-light);
   border-radius: 50px;
+  color: var(--accent-color);
+  background: linear-gradient(90deg, var(--accent-color-light), rgba(96, 165, 250, 0.05));
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 .education-content h3,
 .experience-content h3 {
@@ -929,18 +1005,24 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: var(--border-radius);
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   transition: var(--transition);
   display: flex;
   gap: 1.25rem;
   animation: fadeInUp 1.6s ease;
   border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
 }
 
-.interest-item:hover, .exp-highlight:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+.interest-item::before, .exp-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-color), transparent);
 }
 
 .interest-icon, .exp-icon {
@@ -950,10 +1032,16 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-color-light);
+  background: linear-gradient(135deg, var(--accent-color-light) 0%, rgba(96, 165, 250, 0.2) 100%);
   color: var(--accent-color);
   border-radius: 12px;
   font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.interest-item:hover .interest-icon, .exp-highlight:hover .exp-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .interest-content h4, .exp-content h4 {
@@ -969,4 +1057,297 @@ a:hover {
   margin-bottom: 0;
   color: var(--text-color);
   line-height: 1.7;
+}
+
+/* Improve formatting for expanded sections */
+
+/* About section formatting */
+#about-modal {
+  max-width: 100%;
+  padding: 0.5rem;
+}
+
+#about-modal .about-intro {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  color: var(--heading-color);
+}
+
+#about-modal p {
+  margin-bottom: 1.5rem;
+}
+
+.interests-container, .experience-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.interest-item, .exp-highlight {
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.interest-icon, .exp-icon {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.interest-content h4, .exp-content h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.interest-content p, .exp-content p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Education section formatting */
+#education-modal .education-item {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+}
+
+#education-modal h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+#education-modal h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+#education-modal ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+#education-modal ul li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* Experience section formatting */
+#experience-modal .experience-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+#experience-modal h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+#experience-modal ul {
+  margin-left: 1rem;
+}
+
+#experience-modal ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Projects section formatting */
+#projects-modal ol {
+  counter-reset: project-counter;
+  padding-left: 0;
+}
+
+#projects-modal ol li {
+  counter-increment: project-counter;
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+#projects-modal ol li::before {
+  content: counter(project-counter) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #5f8dff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+
+#projects-modal strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#projects-modal p {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+/* Skills section formatting */
+#skills-modal ul {
+  padding-left: 1.25rem;
+}
+
+#skills-modal ul > li {
+  margin-bottom: 1.25rem;
+}
+
+#skills-modal ul > li > strong {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+#skills-modal ul > li > strong::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+#skills-modal ul > li > ul {
+  margin: 0.5rem 0;
+}
+
+#skills-modal ul > li > ul > li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Patent section formatting */
+#patent-modal p {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+#patent-modal em {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+}
+
+#patent-modal ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+
+#patent-modal li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for modal content */
+@media (max-width: 768px) {
+  .interests-container, .experience-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  #education-modal ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adjust all modal headers to be consistent */
+.modal-body h3 {
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  background-image: linear-gradient(90deg, var(--heading-color), var(--heading-color));
+  background-size: 100%;
+  position: relative;
+}
+
+.modal-body h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  border-radius: 3px;
+}
+
+/* Add subtle text shadow to emphasis elements */
+.active-card-content strong, 
+.interest-content h4, 
+.exp-content h4,
+.education-content h3, 
+.experience-content h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhance blockquotes and emphasis text */
+.active-card-content em {
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Add smooth hover effects to cards */
+.interest-item:hover, .exp-highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+/* Restore font size for skills strong elements */
+#skills-modal ul > li > strong {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Fix patent section heading style */
+#patent-modal p strong {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Add a subtle animation to the active card container */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.active-card-container {
+  animation: cardFadeIn 0.5s ease-out;
 }
