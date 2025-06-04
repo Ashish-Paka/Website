@@ -479,6 +479,13 @@ a:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
+.category-card:hover .card-content {
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.98) 0%,
+    rgba(0, 0, 0, 0.85) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
 .card-image {
   position: absolute;
   top: 0;
@@ -488,28 +495,63 @@ a:hover {
   background-position: center;
   background-size: cover;
   z-index: 1;
-  opacity: 1;
+  opacity: 0.8;
   transition: all 0.5s ease;
 }
-
-/* Actual background images for each category */
-.about-bg {
-  background-image: url('../img/Home-About.jpg');
+.card-content {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  padding: 1.75rem;
+  margin: -1.75rem;
+  color: #ffffff;
 }
-.education-bg {
-  background-image: url('../img/CTA.jpg');
+.card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-.experience-bg {
-  background-image: url('../files/Thrustmit picture.jpg');
+.card-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-.projects-bg {
-  background-image: url('../files/Voxformer.gif');
+/* Card backgrounds with gradient overlays */
+.about-bg { 
+  background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
+  opacity: 0.9;
 }
-.skills-bg {
-  background-image: url('../img/Home-Service-1.png');
+.education-bg { 
+  background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+  opacity: 0.9;
 }
-.patent-bg {
-  background-image: url('../files/patent pic me.jpg');
+.experience-bg { 
+  background: linear-gradient(135deg, #200122 0%, #6f0000 100%);
+  opacity: 0.9;
+}
+.projects-bg { 
+  background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 100%);
+  opacity: 0.9;
+}
+.skills-bg { 
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+  opacity: 0.9;
+}
+.patent-bg { 
+  background: linear-gradient(135deg, #000000 0%, #434343 100%);
+  opacity: 0.9;
 }
 
 /* ===== MODALS / HIDDEN CONTENT ===== */
@@ -1158,7 +1200,505 @@ a:hover {
   font-weight: 800;
   background: linear-gradient(135deg, var(--accent-color) 0%, #ffb6c1 100%);
   -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.1rem;
+}
+
+#projects-modal h3 {
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+}
+
+#projects-modal p {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+/* Skills section formatting */
+#skills-modal ul {
+  padding-left: 1.25rem;
+}
+
+#skills-modal ul > li {
+  margin-bottom: 1.25rem;
+}
+
+#skills-modal ul > li > strong {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+#skills-modal ul > li > strong::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+#skills-modal ul > li > ul {
+  margin: 0.5rem 0;
+}
+
+#skills-modal ul > li > ul > li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Patent section formatting */
+#patent-modal p {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+#patent-modal em {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+}
+
+#patent-modal ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+
+#patent-modal li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for modal content */
+@media (max-width: 768px) {
+  .interests-container, .experience-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  #education-modal ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adjust all modal headers to be consistent */
+.modal-body h3 {
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  background-image: linear-gradient(90deg, var(--heading-color), var(--heading-color));
+  background-size: 100%;
+  position: relative;
+}
+
+.modal-body h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  border-radius: 3px;
+}
+
+/* Add subtle text shadow to emphasis elements */
+.active-card-content strong, 
+.interest-content h4, 
+.exp-content h4,
+.education-content h3, 
+.experience-content h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhance blockquotes and emphasis text */
+.active-card-content em {
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Add smooth hover effects to cards */
+.interest-item:hover, .exp-highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+/* Fix dark mode hover state for interest/experience items */
+.dark-theme .interest-item:hover, 
+.dark-theme .exp-highlight:hover {
+  background-color: rgba(51, 65, 85, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(192, 132, 252, 0.5);
+}
+
+.dark-theme .interest-item:hover .interest-content h4,
+.dark-theme .exp-highlight:hover .exp-content h4 {
+  color: #f8fafc;
+}
+
+.dark-theme .interest-item:hover .interest-content p,
+.dark-theme .exp-highlight:hover .exp-content p {
+  color: #e2e8f0;
+}
+
+.dark-theme .interest-item:hover .interest-icon,
+.dark-theme .exp-highlight:hover .exp-icon {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(168, 85, 247, 0.3));
+  color: #d8b4fe;
+}
+
+/* Restore font size for skills strong elements */
+#skills-modal ul > li > strong {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Fix patent section heading style */
+#patent-modal p strong {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Add a subtle animation to the active card container */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.active-card-container {
+  animation: cardFadeIn 0.5s ease-out;
+}
+
+/* Add styling for project GitHub repository links */
+.project-repo {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  display: inline-flex;
+  font-weight: normal;
+}
+
+.project-repo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: var(--accent-color-light);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  color: var(--accent-color);
+}
+
+.project-repo a:hover {
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Education card specific styling */
+.category-card[data-modal="education-modal"] .card-description {
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+/* Add course bubble styling for education section */
+.course-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.course-bubble {
+  background-color: var(--accent-color-light);
+  color: var(--accent-color);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* Dark mode styles for course bubbles - more vibrant colors */
+.dark-theme .course-bubble {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.course-bubble:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .course-bubble:hover {
+  background-color: rgba(168, 85, 247, 0.8);
+  color: #ffffff;
+  box-shadow: 0 3px 12px rgba(168, 85, 247, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Dark mode styles for education section - brighter colors */
+.dark-theme #education-modal h3 {
+  color: #f0abfc;
+  border-bottom: 1px solid rgba(216, 180, 254, 0.4);
+  padding-bottom: 0.5rem;
+}
+
+.dark-theme #education-modal h4 {
+  color: #e9d5ff;
+}
+
+.dark-theme #education-modal p,
+.dark-theme #education-modal ul li {
+  color: #f1f5f9;
+}
+
+.dark-theme .education-period {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.5), rgba(192, 132, 252, 0.3));
+  color: #ffffff;
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .education-item {
+  border-bottom: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+.dark-theme .education-content strong {
+  color: #d8b4fe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .early-education {
+  background-color: rgba(88, 28, 135, 0.3);
+  border-color: rgba(192, 132, 252, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-theme .early-education h4 {
+  color: #e9d5ff;
+  border-bottom-color: rgba(192, 132, 252, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .early-education strong {
+  color: #d8b4fe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Early education section styling */
+.early-education {
+  background-color: rgba(240, 240, 240, 0.5);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.early-education h4 {
+  color: var(--heading-color);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.early-education p {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.early-education strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.early-education p:nth-of-type(5),
+.early-education p:nth-of-type(10) {
+  margin-bottom: 1rem;
+}
+
+/* Make the footer tagline white in dark mode */
+.dark-theme .footer__tagline {
+  color: #ffffff;
+}
+
+/* Make sure the active-card-subtitle is white in dark mode */
+.dark-theme .active-card-subtitle {
+  background-image: none;
+  background-color: transparent;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve dark mode text colors in the About section with brighter colors */
+.dark-theme #about-modal p {
+  color: #ffffff;
+}
+
+.dark-theme #about-modal .about-intro {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme #about-modal strong {
+  color: #ffeb3b; /* Bright yellow */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme #about-modal h3 {
+  color: #ff80ab; /* Bright pink */
+  border-bottom: 1px solid rgba(255, 128, 171, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme #about-modal a {
+  color: #69f0ae; /* Bright green */
+  text-decoration: underline;
+}
+
+.dark-theme #about-modal a:hover {
+  color: #b388ff; /* Light purple */
+}
+
+/* More vibrant icons in about section for dark mode */
+.dark-theme #about-modal .interest-icon,
+.dark-theme #about-modal .exp-icon {
+  background: linear-gradient(135deg, rgba(255, 64, 129, 0.6), rgba(255, 171, 64, 0.5));
+  color: #ffffff;
+}
+
+/* Enhance dark mode text in all about section elements */
+.dark-theme .interest-content h4,
+.dark-theme .exp-content h4 {
+  color: #ff80ab; /* Bright pink */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .interest-content p,
+.dark-theme .exp-content p {
+  color: #ffffff;
+}
+
+.dark-theme #about-modal .interest-item:hover .interest-content h4,
+.dark-theme #about-modal .exp-highlight:hover .exp-content h4 {
+  color: #ffeb3b; /* Bright yellow */
+}
+
+.dark-theme #about-modal .interest-item:hover .interest-content p,
+.dark-theme #about-modal .exp-highlight:hover .exp-content p {
+  color: #ffffff;
+}
+
+/* Updated experience section formatting for all modes */
+.experience-item {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.experience-content {
+  position: relative;
+}
+
+#experience-modal h3,
+#education-modal h3,
+#projects-modal h3,
+#skills-modal h3,
+#patent-modal h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.experience-period,
+.education-period {
+  position: relative;
+  top: 0;
+  margin-bottom: 0;
+  margin-left: 0.75rem;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+#experience-modal ul,
+#projects-modal ul,
+#skills-modal ul,
+#patent-modal ul {
+  margin-left: 1rem;
+  margin-top: 0.15rem;
+  padding-left: 0.5rem;
+}
+
+#experience-modal ul li,
+#projects-modal ul li,
+#skills-modal ul li,
+#patent-modal ul li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+/* Projects section improvements */
+#projects-modal ol {
+  counter-reset: project-counter;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#projects-modal ol li {
+  counter-increment: project-counter;
+  margin-bottom: 0.25rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+#projects-modal ol li::before {
+  content: counter(project-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #ffb6c1 100%);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.1rem;
 }
@@ -1312,7 +1852,6 @@ a:hover {
 .dark-theme #projects-modal ol li::before {
   background: linear-gradient(135deg, #ffb6c1 0%, #fff59d 100%);
   -webkit-background-clip: text;
-  background-clip: text;
 }
 
 .dark-theme #projects-modal em {
@@ -1447,26 +1986,4 @@ a:hover {
 
 .popup-body p {
   margin-bottom: 0.75rem;
-}
-
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%; /* covers 40% of card height */
-  margin: 0;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 100%);
-}
-
-.card-title {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-}
-
-.card-description {
-  font-size: clamp(0.75rem, 1.8vw, 1rem);
 }
