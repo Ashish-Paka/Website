@@ -495,39 +495,51 @@ a:hover {
   background-position: center;
   background-size: cover;
   z-index: 1;
-  opacity: 0.8;
+  opacity: 1;
   transition: all 0.5s ease;
 }
-.card-content {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(to top, 
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.8) 50%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-  padding: 1.75rem;
-  margin: -1.75rem;
-  color: #ffffff;
+.card-image.about-bg {
+  background: linear-gradient(135deg, rgba(26,26,26,0.7) 0%, rgba(54,54,54,0.7) 100%), url('../img/Home-About.jpg') center/cover no-repeat;
 }
+.card-image.education-bg {
+  background: linear-gradient(135deg, rgba(0,4,40,0.7) 0%, rgba(0,78,146,0.7) 100%), url('../img/CTA.jpg') center/cover no-repeat;
+}
+.card-image.experience-bg {
+  background: linear-gradient(135deg, rgba(32,1,34,0.7) 0%, rgba(111,0,0,0.7) 100%), url('../files/Experience card background Franka LOGOS lab.jpg') center/cover no-repeat;
+}
+.card-image.projects-bg {
+  background: linear-gradient(135deg, rgba(26,42,108,0.7) 0%, rgba(178,31,31,0.7) 100%), url('../files/Projects card background Voxformer.gif') center/cover no-repeat;
+}
+.card-image.skills-bg {
+  background: linear-gradient(135deg, rgba(15,12,41,0.7) 0%, rgba(48,43,99,0.7) 100%), url('../img/Home-Service-1.png') center/cover no-repeat;
+}
+.card-image.patent-bg {
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(67,67,67,0.7) 100%), url('../files/Patent card background patent pic me.jpg') center/cover no-repeat;
+}
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 35%;
+  max-height: 60%;
+  height: auto;
+  margin: 0;
+  padding: 1.25rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 100%);
+  z-index: 2;
+}
+
 .card-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 .card-description {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  font-weight: 500;
-  color: #ffffff;
-  opacity: 0.95;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
 }
+
 /* Card backgrounds with gradient overlays */
 .about-bg { 
   background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
