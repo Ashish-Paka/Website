@@ -16,6 +16,86 @@ const yearSpan = document.getElementById("current-year");
 const contactForm = document.getElementById("contact-form");
 const aboutContent = document.getElementById("active-content").innerHTML; // Store original About content
 
+// === Card Background Image Logic ===
+function setCardBgImage(card, idx = 0) {
+  const bgImages = card.getAttribute('data-bg-images');
+  if (!bgImages) return;
+  let images;
+  try {
+    images = JSON.parse(bgImages.replace(/'/g, '"'));
+  } catch {
+    images = [];
+  }
+  const cardBg = card.querySelector('.card-bg-image');
+  if (cardBg && images.length) {
+    cardBg.style.backgroundImage = `url('${images[idx]}')`;
+  }
+}
+
+// Cycle background images for cards with multiple images
+document.querySelectorAll('.category-card[data-bg-images]').forEach(card => {
+  let images;
+  try {
+    images = JSON.parse(card.getAttribute('data-bg-images').replace(/'/g, '"'));
+  } catch {
+    images = [];
+  }
+  if (images.length > 1) {
+    let idx = 0;
+    setCardBgImage(card, idx);
+    setInterval(() => {
+      idx = (idx + 1) % images.length;
+      setCardBgImage(card, idx);
+    }, 5000);
+  } else if (images.length === 1) {
+    setCardBgImage(card, 0);
+  }
+});
+
+// === Active Card (Left Slide) Background Logic ===
+let activeBgInterval = null;
+function setActiveCardBg(images, idx = 0) {
+  let bgDiv = activeCardContainer.querySelector('.active-card-bg-image');
+  if (!bgDiv) {
+    bgDiv = document.createElement('div');
+    bgDiv.className = 'active-card-bg-image';
+    bgDiv.style.position = 'absolute';
+    bgDiv.style.top = 0;
+    bgDiv.style.left = 0;
+    bgDiv.style.width = '100%';
+    bgDiv.style.height = '100%';
+    bgDiv.style.zIndex = 0;
+    bgDiv.style.backgroundPosition = 'center';
+    bgDiv.style.backgroundSize = 'cover';
+    bgDiv.style.opacity = 0.25;
+    bgDiv.style.transition = 'background-image 0.7s cubic-bezier(0.4,0,0.2,1)';
+    activeCardContainer.insertBefore(bgDiv, activeCardContainer.firstChild);
+  }
+  if (images && images.length) {
+    bgDiv.style.backgroundImage = `url('${images[idx]}')`;
+  } else {
+    bgDiv.style.backgroundImage = '';
+  }
+}
+
+function updateActiveCardBgFor(card) {
+  if (activeBgInterval) clearInterval(activeBgInterval);
+  let images;
+  try {
+    images = JSON.parse(card.getAttribute('data-bg-images').replace(/'/g, '"'));
+  } catch {
+    images = [];
+  }
+  let idx = 0;
+  setActiveCardBg(images, idx);
+  if (images.length > 1) {
+    activeBgInterval = setInterval(() => {
+      idx = (idx + 1) % images.length;
+      setActiveCardBg(images, idx);
+    }, 5000);
+  }
+}
+
 // Set current year
 const currentYear = new Date().getFullYear();
 if (yearSpan) {
@@ -149,6 +229,7 @@ categoryCards.forEach((card, index) => {
 
     // Ensure the card is visible in the viewport
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    updateActiveCardBgFor(card);
   });
 });
 
@@ -233,6 +314,7 @@ window.addEventListener('load', () => {
   if (aboutCard) {
     aboutCard.classList.add('active');
     aboutCard.click();
+    updateActiveCardBgFor(aboutCard);
   }
 });
 
