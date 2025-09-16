@@ -229,6 +229,18 @@ function initLatchScrolling() {
     function handleKeyDown(e) {
         if (isScrolling) return;
 
+        // Don't interfere with form inputs, textareas, or editable content
+        const activeElement = document.activeElement;
+        const isFormElement = activeElement && (
+            activeElement.tagName === 'INPUT' ||
+            activeElement.tagName === 'TEXTAREA' ||
+            activeElement.tagName === 'SELECT' ||
+            activeElement.contentEditable === 'true' ||
+            activeElement.isContentEditable
+        );
+
+        if (isFormElement) return;
+
         let newIndex = currentSectionIndex;
 
         switch(e.key) {
@@ -359,8 +371,6 @@ function initContactForm() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default to handle both submissions
-
             // Get form data for validation
             const formData = new FormData(this);
             const name = formData.get('name');
@@ -370,11 +380,13 @@ function initContactForm() {
 
             // Basic validation
             if (!name || !email || !subject || !message) {
+                e.preventDefault();
                 showNotification('Please fill in all fields.', 'error');
                 return;
             }
 
             if (!isValidEmail(email)) {
+                e.preventDefault();
                 showNotification('Please enter a valid email address.', 'error');
                 return;
             }
@@ -385,7 +397,7 @@ function initContactForm() {
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
 
-            // First, send to CSV backup function
+            // Also store to CSV backup function
             const csvData = { name, email, subject, message };
 
             fetch('/.netlify/functions/csv-backup', {
@@ -404,26 +416,8 @@ function initContactForm() {
                 // Continue with main form submission even if backup fails
             });
 
-            // Then submit to Netlify forms
-            fetch('/', {
-                method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect to thank you page on success
-                    window.location.href = '/thank-you.html';
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            });
+            // Let Netlify handle the form submission naturally
+            // The form will redirect to thank-you.html on success
         });
     }
 }
