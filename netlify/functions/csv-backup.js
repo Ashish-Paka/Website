@@ -45,10 +45,8 @@ exports.handler = async (event, context) => {
 
     // Prepare CSV data with proper escaping
     const escapeCsvField = (field) => {
-      // Convert to string and escape quotes by doubling them
       const str = String(field || '');
       const escaped = str.replace(/"/g, '""');
-      // Wrap in quotes if contains comma, newline, or quote
       if (str.includes(',') || str.includes('\n') || str.includes('"')) {
         return `"${escaped}"`;
       }
@@ -64,39 +62,28 @@ exports.handler = async (event, context) => {
       escapeCsvField(message)
     ].join(',');
 
-    // Create CSV header
-    const csvHeader = 'Timestamp,Name,Email,Subject,Message';
+    // Log submission to console (visible in Netlify function logs)
+    console.log('=== NEW FORM SUBMISSION ===');
+    console.log('CSV Row:', csvRow);
+    console.log('Timestamp:', timestamp);
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Subject:', subject);
+    console.log('Message:', message);
+    console.log('=== END SUBMISSION ===');
 
-    // Log the data (this will appear in Netlify function logs)
-    console.log('=== FORM SUBMISSION CSV BACKUP ===');
-    console.log('Header:', csvHeader);
-    console.log('Data:', csvRow);
-    console.log('Raw data:', { timestamp, name, email, subject, message });
-    console.log('=== END CSV BACKUP ===');
-
-    // In a production environment, you could:
-    // 1. Store in a database (like Supabase, Firebase, etc.)
-    // 2. Send to Google Sheets API
-    // 3. Store in cloud storage (AWS S3, etc.)
-    // 4. Send via email
-
-    // For now, we'll return the CSV data so it can be logged
     return {
       statusCode: 200,
       headers,
       body: JSON.stringify({
         success: true,
-        message: 'Form data backed up successfully',
-        timestamp: timestamp,
-        csvData: {
-          header: csvHeader,
-          row: csvRow
-        }
+        message: 'Form submission logged successfully',
+        timestamp: timestamp
       })
     };
 
   } catch (error) {
-    console.error('Error in CSV backup:', error);
+    console.error('Error logging submission:', error);
     return {
       statusCode: 500,
       headers,

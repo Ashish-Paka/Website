@@ -1,3 +1,6 @@
+const fs = require('fs').promises;
+const path = require('path');
+
 exports.handler = async (event, context) => {
   // Set CORS headers
   const headers = {
@@ -37,21 +40,34 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Get form submissions from Netlify API (if available)
-    // This is a placeholder - in reality you'd integrate with Netlify API
-    // or maintain your own storage
+    // Define CSV file path (same as in csv-backup.js)
+    const csvFilePath = path.join(process.cwd(), 'responses.csv');
 
-    // For now, return a sample CSV format
-    const csvHeader = 'Timestamp,Name,Email,Subject,Message\n';
-    const sampleData = `"${new Date().toISOString()}","Sample User","sample@example.com","Test Subject","This is a sample message for CSV format demonstration"`;
+    let csvContent = '';
 
-    const csvContent = csvHeader + sampleData;
+    try {
+      // Try to read the existing CSV file
+      csvContent = await fs.readFile(csvFilePath, 'utf8');
+      console.log('Successfully read CSV file');
+    } catch (fileError) {
+      console.log('CSV file not found or error reading, creating default content');
+      
+      // If file doesn't exist, create default content
+      const csvHeader = 'Timestamp,Name,Email,Subject,Message\n';
+      const sampleData = `"${new Date().toISOString()}","No Submissions Yet","no-submissions@example.com","Welcome","No form submissions have been received yet. This is a placeholder entry."`;
+      
+      csvContent = csvHeader + sampleData;
+    }
+
+    // Generate filename with current date
+    const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+    const filename = `portfolio-responses-${currentDate}.csv`;
 
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename="responses.csv"',
+        'Content-Disposition': `attachment; filename="${filename}"`,
         'Access-Control-Allow-Origin': '*',
       },
       body: csvContent
