@@ -22,8 +22,8 @@ function initThemeToggle() {
     const themeToggleInputs = document.querySelectorAll('.theme-toggle-input');
     const html = document.documentElement;
 
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
 
     // Set initial checkbox states based on saved theme
