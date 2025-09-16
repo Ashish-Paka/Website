@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linkedinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0077B5"/>
+      <stop offset="100%" style="stop-color:#005885"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#linkedinGrad)"/><rect x="6" y="9" width="3" height="8" fill="#fff"/><circle cx="7.5" cy="6.5" r="1.5" fill="#fff"/><rect x="11" y="9" width="3" height="8" fill="#fff"/><path d="M14 12c0-1 1-2 2.5-2s2.5 1 2.5 2v5h-3v-3" fill="none" stroke="#fff" stroke-width="1.5"/>
+</svg>
